@@ -15,6 +15,14 @@ set_option maxRecDepth 2048
 
 namespace curve25519_dalek
 
+/-- Trait declaration: [core::borrow::Borrow]
+    Source: '/rustc/library/core/src/borrow.rs', lines 158:0-158:40
+    Name pattern: [core::borrow::Borrow]
+    Visibility: public -/
+@[rust_trait "core::borrow::Borrow"]
+structure core.borrow.Borrow (Self : Type) (Borrowed : Type) where
+  borrow : Self → Result Borrowed
+
 /-- Trait declaration: [core::ops::arith::Add]
     Source: '/rustc/library/core/src/ops/arith.rs', lines 76:0-76:31
     Name pattern: [core::ops::arith::Add]
@@ -101,15 +109,95 @@ structure subtle.ConditionallySelectable (Self : Type) where
   conditional_assign : Self → Self → subtle.Choice → Result Self
   conditional_swap : Self → Self → subtle.Choice → Result (Self × Self)
 
+/-- [curve25519_dalek::backend::BackendKind]
+    Source: 'curve25519-dalek/src/backend/mod.rs', lines 46:0-52:1 -/
+@[discriminant isize]
+inductive backend.BackendKind where
+| Avx2 : backend.BackendKind
+| Avx512 : backend.BackendKind
+| Serial : backend.BackendKind
+
+/-- [curve25519_dalek::scalar::Scalar]
+    Source: 'curve25519-dalek/src/scalar.rs', lines 202:0-239:1
+    Visibility: public -/
+structure scalar.Scalar where
+  bytes : Array Std.U8 32#usize
+
 /-- [curve25519_dalek::backend::serial::u64::field::FieldElement51]
     Source: 'curve25519-dalek/src/backend/serial/u64/field.rs', lines 43:0-43:47
     Visibility: public -/
 @[reducible]
 def backend.serial.u64.field.FieldElement51 := Array Std.U64 5#usize
 
+/-- [curve25519_dalek::edwards::EdwardsPoint]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 371:0-376:1
+    Visibility: public -/
+structure edwards.EdwardsPoint where
+  X : backend.serial.u64.field.FieldElement51
+  Y : backend.serial.u64.field.FieldElement51
+  Z : backend.serial.u64.field.FieldElement51
+  T : backend.serial.u64.field.FieldElement51
+
+/-- [curve25519_dalek::backend::serial::curve_models::ProjectivePoint]
+    Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 154:0-158:1
+    Visibility: public -/
+structure backend.serial.curve_models.ProjectivePoint where
+  X : backend.serial.u64.field.FieldElement51
+  Y : backend.serial.u64.field.FieldElement51
+  Z : backend.serial.u64.field.FieldElement51
+
+/-- [curve25519_dalek::backend::serial::curve_models::CompletedPoint]
+    Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 169:0-174:1
+    Visibility: public -/
+structure backend.serial.curve_models.CompletedPoint where
+  X : backend.serial.u64.field.FieldElement51
+  Y : backend.serial.u64.field.FieldElement51
+  Z : backend.serial.u64.field.FieldElement51
+  T : backend.serial.u64.field.FieldElement51
+
+/-- [curve25519_dalek::backend::serial::curve_models::AffineNielsPoint]
+    Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 184:0-188:1
+    Visibility: public -/
+structure backend.serial.curve_models.AffineNielsPoint where
+  y_plus_x : backend.serial.u64.field.FieldElement51
+  y_minus_x : backend.serial.u64.field.FieldElement51
+  xy2d : backend.serial.u64.field.FieldElement51
+
+/-- [curve25519_dalek::backend::serial::curve_models::ProjectiveNielsPoint]
+    Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 206:0-211:1
+    Visibility: public -/
+structure backend.serial.curve_models.ProjectiveNielsPoint where
+  Y_plus_X : backend.serial.u64.field.FieldElement51
+  Y_minus_X : backend.serial.u64.field.FieldElement51
+  Z : backend.serial.u64.field.FieldElement51
+  T2d : backend.serial.u64.field.FieldElement51
+
+/-- Trait declaration: [curve25519_dalek::traits::Identity]
+    Source: 'curve25519-dalek/src/traits.rs', lines 26:0-30:1
+    Visibility: public -/
+structure traits.Identity (Self : Type) where
+  identity : Result Self
+
+/-- Trait declaration: [curve25519_dalek::traits::ValidityCheck]
+    Source: 'curve25519-dalek/src/traits.rs', lines 412:0-415:1 -/
+structure traits.ValidityCheck (Self : Type) where
+  is_valid : Self → Result Bool
+
 /-- [curve25519_dalek::backend::serial::u64::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::from_bytes::closure]
     Source: 'curve25519-dalek/src/backend/serial/u64/field.rs', lines 339:20-348:9 -/
 @[reducible]
 def backend.serial.u64.field.FieldElement51.from_bytes.closure := Unit
+
+/-- [curve25519_dalek::edwards::CompressedEdwardsY]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 165:0-165:44
+    Visibility: public -/
+@[reducible]
+def edwards.CompressedEdwardsY := Array Std.U8 32#usize
+
+/-- [curve25519_dalek::montgomery::MontgomeryPoint]
+    Source: 'curve25519-dalek/src/montgomery.rs', lines 75:0-75:41
+    Visibility: public -/
+@[reducible]
+def montgomery.MontgomeryPoint := Array Std.U8 32#usize
 
 end curve25519_dalek

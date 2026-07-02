@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Regenerate the Lean model in gen/ from the Rust sources.
+#
+# SCOPE: field arithmetic + Edwards point arithmetic
+#   roots: crate::field, crate::backend::serial::u64::field,
+#          crate::backend::serial::curve_models, crate::edwards
+#   (same widening the reference solution used for its Tier-1 addition-law
+#    theorem; scalar-mul backends and decompress internals stay opaque —
+#    upstream Aeneas cannot translate them; they are modeled/axiomatized in
+#    gen/CurveField/FunsExternal.lean OUTSIDE every certificate's cone).
+#
+#   Rust --charon--> CurveField.llbc --aeneas--> gen/CurveField/*.lean
+#
+# The hand-written gen/CurveField/{TypesExternal,FunsExternal}.lean are NOT
+# touched by regeneration (Aeneas only rewrites the *_Template variants).
+# After regenerating, diff the templates against the hand-written files:
+#   diff gen/CurveField/FunsExternal_Template.lean gen/CurveField/FunsExternal.lean
+#
+# Usage:  ./extract.sh
+set -euo pipefail
+
+source ~/aeneas-toolchain/env.sh
+HERE="$(cd "$(dirname "$0")" && pwd)"
+CRATE=~/GitClone/FormalVerification/sources/risc0-curve25519-dalek-source/curve25519-dalek
+
+echo "[1/2] charon: Rust -> LLBC (field + curve_models + edwards)"
+cd "$CRATE"
+charon cargo --preset=aeneas \
+  --start-from crate::field \
+  --start-from crate::backend::serial::u64::field \
+  --start-from crate::backend::serial::curve_models \
+  --start-from crate::edwards \
+  --opaque 'crate::field::_::internal_invert_batch' \
+  --opaque 'crate::backend::serial::scalar_mul' \
+  --opaque 'crate::backend::vector' \
+  --opaque 'crate::backend::get_selected_backend' \
+  --opaque 'crate::edwards::decompress' \
+  --opaque 'crate::edwards::_::sum' \
+  --opaque 'crate::edwards::_::from_slice' \
+  --dest-file "$HERE/CurveField.llbc" \
+  -- --no-default-features
+
+echo "[2/2] aeneas: LLBC -> Lean (split files, CurveField.* modules)"
+cd "$HERE"
+aeneas -backend lean -split-files -subdir CurveField -dest gen CurveField.llbc
+
+echo "Done. Now run ./check.sh to type-check the regenerated model."
