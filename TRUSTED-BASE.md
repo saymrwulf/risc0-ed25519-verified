@@ -20,6 +20,13 @@ running Rust code. Everything else is machine-checked.
    certificate has the shape "IF the hash model computes SHA-512, THEN an
    accepted signature satisfies the EdDSA verification equation". The hash
    implementation itself is NOT verified.
-6. **Compilation of Rust to machine code** (rustc backend) is out of scope,
+6. **`Scalar52::sub::black_box` (scalar layer)**: this fork's v4.1.3 code
+   implements the constant-time conditional via a local `black_box` =
+   `unsafe { core::ptr::read_volatile(&value) }`. The volatile read is an
+   optimization fence whose VALUE semantics is the identity; it is modeled as
+   `id` in `gen/CurveScalar/FunsExternal.lean`. (Upstream v5 uses `subtle`
+   here; betrusted v4.1.2 uses a pure arithmetic mask — each fork is verified
+   against its own strategy.)
+7. **Compilation of Rust to machine code** (rustc backend) is out of scope,
    as is side-channel behaviour (timing, speculation). The proofs are about
    functional correctness at the MIR/LLBC level.
