@@ -742,7 +742,9 @@ theorem sub_val_spec (a b : Sc)
     (hbb : b0.val < 2^52 ∧ b1.val < 2^52 ∧ b2.val < 2^52 ∧ b3.val < 2^52 ∧ b4.val < 2^52)
     (hcb : scVal b ≤ Ell) :
     backend.serial.u64.scalar.Scalar52.sub a b
-      ⦃ r => scDenote r = scDenote a - scDenote b ⦄ := by
+      ⦃ r => (∃ s0 s1 s2 s3 s4 : U64, (↑r : List U64) = [s0, s1, s2, s3, s4] ∧
+              s0.val < 2^52 ∧ s1.val < 2^52 ∧ s2.val < 2^52 ∧ s3.val < 2^52 ∧ s4.val < 2^52) ∧
+            scDenote r = scDenote a - scDenote b ⦄ := by
   obtain ⟨hA0, hA1, hA2, hA3, hA4⟩ := hab
   obtain ⟨hB0, hB1, hB2, hB3, hB4⟩ := hbb
   unfold backend.serial.u64.scalar.Scalar52.sub
@@ -763,7 +765,9 @@ theorem sub_val_spec (a b : Sc)
     let underflow_mask ← lift (core.num.U64.wrapping_sub i2 1#u64)
     backend.serial.u64.scalar.Scalar52.sub_loop1
       { start := 0#usize, «end» := 5#usize } dw mask underflow_mask 0#u64)
-    ⦃ r => scDenote r = scDenote a - scDenote b ⦄
+    ⦃ r => (∃ s0 s1 s2 s3 s4 : U64, (↑r : List U64) = [s0, s1, s2, s3, s4] ∧
+            s0.val < 2^52 ∧ s1.val < 2^52 ∧ s2.val < 2^52 ∧ s3.val < 2^52 ∧ s4.val < 2^52) ∧
+          scDenote r = scDenote a - scDenote b ⦄
   -- underflow mask: um = ((borrow>>>63) ^^^ 1) − 1  (all-ones iff borrow)
   step as ⟨i1, hi1⟩
   have hi1v : i1.val = β5 := by rw [hi1]; exact hbor
@@ -789,6 +793,8 @@ theorem sub_val_spec (a b : Sc)
       rw [humv, hi2v, hβz]; norm_num
     apply spec_mono (sub_loop1_zero_spec dw mask um d0 d1 d2 d3 d4 hdl hmaskv humz hdb)
     rintro d ⟨r0, r1, r2, r3, r4, hrl, hr0, hr1, hr2, hr3, hr4⟩
+    refine ⟨⟨r0, r1, r2, r3, r4, hrl,
+      by omega, by omega, by omega, by omega, by omega⟩, ?_⟩
     have hdval : scVal d = scLimbs d0 d1 d2 d3 d4 := by
       rw [scVal_eq d r0 r1 r2 r3 r4 hrl]; unfold scLimbs; rw [hr0, hr1, hr2, hr3, hr4]
     have key : scVal d + scVal b = scVal a := by
@@ -803,6 +809,7 @@ theorem sub_val_spec (a b : Sc)
     rintro d ⟨r0, r1, r2, r3, r4, γ1, γ2, γ3, γ4, γ5, hrl,
       hgb1, hgb2, hgb3, hgb4, hgb5, hrb0, hrb1, hrb2, hrb3, hrb4,
       hf0, hf1, hf2, hf3, hf4⟩
+    refine ⟨⟨r0, r1, r2, r3, r4, hrl, hrb0, hrb1, hrb2, hrb3, hrb4⟩, ?_⟩
     have hLsum : (671914833335277 + 2^52*3916664325105025 + 2^104*1367801
         + 2^156*0 + 2^208*17592186044416 : ℕ) = Ell := by unfold Ell; norm_num
     have hTadd : scLimbs r0 r1 r2 r3 r4 + 2^260 * γ5 = scLimbs d0 d1 d2 d3 d4 + Ell := by
