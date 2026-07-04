@@ -31,7 +31,10 @@ charon cargo --preset=aeneas \
   --start-from crate::backend::serial::curve_models \
   --start-from crate::edwards \
   --opaque 'crate::field::_::internal_invert_batch' \
-  --opaque 'crate::backend::serial::scalar_mul' \
+  --opaque 'crate::backend::serial::scalar_mul::variable_base' \
+  --opaque 'crate::backend::serial::scalar_mul::straus' \
+  --opaque 'crate::backend::serial::scalar_mul::precomputed_straus' \
+  --opaque 'crate::backend::serial::scalar_mul::pippenger' \
   --opaque 'crate::backend::vector' \
   --opaque 'crate::backend::get_selected_backend' \
   --opaque 'crate::edwards::decompress' \

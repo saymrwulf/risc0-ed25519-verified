@@ -138,6 +138,11 @@ structure edwards.EdwardsPoint where
   Z : backend.serial.u64.field.FieldElement51
   T : backend.serial.u64.field.FieldElement51
 
+/-- [curve25519_dalek::window::NafLookupTable5]
+    Source: 'curve25519-dalek/src/window.rs', lines 183:0-183:56 -/
+@[reducible]
+def window.NafLookupTable5 (T : Type) := Array T 8#usize
+
 /-- [curve25519_dalek::backend::serial::curve_models::ProjectivePoint]
     Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 154:0-158:1
     Visibility: public -/
@@ -155,14 +160,6 @@ structure backend.serial.curve_models.CompletedPoint where
   Z : backend.serial.u64.field.FieldElement51
   T : backend.serial.u64.field.FieldElement51
 
-/-- [curve25519_dalek::backend::serial::curve_models::AffineNielsPoint]
-    Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 184:0-188:1
-    Visibility: public -/
-structure backend.serial.curve_models.AffineNielsPoint where
-  y_plus_x : backend.serial.u64.field.FieldElement51
-  y_minus_x : backend.serial.u64.field.FieldElement51
-  xy2d : backend.serial.u64.field.FieldElement51
-
 /-- [curve25519_dalek::backend::serial::curve_models::ProjectiveNielsPoint]
     Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 206:0-211:1
     Visibility: public -/
@@ -171,6 +168,14 @@ structure backend.serial.curve_models.ProjectiveNielsPoint where
   Y_minus_X : backend.serial.u64.field.FieldElement51
   Z : backend.serial.u64.field.FieldElement51
   T2d : backend.serial.u64.field.FieldElement51
+
+/-- [curve25519_dalek::backend::serial::curve_models::AffineNielsPoint]
+    Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 184:0-188:1
+    Visibility: public -/
+structure backend.serial.curve_models.AffineNielsPoint where
+  y_plus_x : backend.serial.u64.field.FieldElement51
+  y_minus_x : backend.serial.u64.field.FieldElement51
+  xy2d : backend.serial.u64.field.FieldElement51
 
 /-- Trait declaration: [curve25519_dalek::traits::Identity]
     Source: 'curve25519-dalek/src/traits.rs', lines 26:0-30:1
