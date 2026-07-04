@@ -113,8 +113,6 @@ structure subtle.ConditionallySelectable (Self : Type) where
     Source: 'curve25519-dalek/src/backend/mod.rs', lines 46:0-52:1 -/
 @[discriminant isize]
 inductive backend.BackendKind where
-| Avx2 : backend.BackendKind
-| Avx512 : backend.BackendKind
 | Serial : backend.BackendKind
 
 /-- [curve25519_dalek::scalar::Scalar]
@@ -187,6 +185,12 @@ structure traits.Identity (Self : Type) where
     Source: 'curve25519-dalek/src/traits.rs', lines 412:0-415:1 -/
 structure traits.ValidityCheck (Self : Type) where
   is_valid : Self → Result Bool
+
+/-- [curve25519_dalek::backend::serial::u64::scalar::Scalar52]
+    Source: 'curve25519-dalek/src/backend/serial/u64/scalar.rs', lines 25:0-25:34
+    Visibility: public -/
+@[reducible]
+def backend.serial.u64.scalar.Scalar52 := Array Std.U64 5#usize
 
 /-- [curve25519_dalek::backend::serial::u64::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::from_bytes::closure]
     Source: 'curve25519-dalek/src/backend/serial/u64/field.rs', lines 339:20-348:9 -/

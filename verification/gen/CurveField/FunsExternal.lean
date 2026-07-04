@@ -162,7 +162,9 @@ def core.ops.range.RangeFull.Insts.CoreSliceIndexSliceIndexSliceSlice.get
     Name pattern: [subtle::{subtle::Choice}::unwrap_u8]
     Visibility: public -/
 @[rust_fun "subtle::{subtle::Choice}::unwrap_u8"]
-axiom subtle.Choice.unwrap_u8 : subtle.Choice → Result Std.U8
+def subtle.Choice.unwrap_u8 (c : subtle.Choice) : Result Std.U8 :=
+  -- MODEL (faithful): `Choice` is the u8 wrapper; `unwrap_u8` is `self.0`.
+  ok c
 
 /-- [subtle::{impl core::convert::From<subtle::Choice> for bool}::from]:
     Source: '/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/subtle-2.6.1/src/lib.rs', lines 153:4-153:35
@@ -294,7 +296,10 @@ def U64.Insts.SubtleConditionallySelectable.conditional_swap
 
 /-- [curve25519_dalek::backend::get_selected_backend]:
     Source: 'curve25519-dalek/src/backend/mod.rs', lines 55:0-75:1 -/
-axiom backend.get_selected_backend : Result backend.BackendKind
+-- REAL DEFINITION (not an axiom): under the verified build configuration
+-- (curve25519_dalek_backend = "serial") the only backend is Serial.
+def backend.get_selected_backend : Result backend.BackendKind :=
+  ok backend.BackendKind.Serial
 
 /-- [curve25519_dalek::backend::vector::scalar_mul::variable_base::spec_avx512ifma_avx512vl::mul]:
     Source: 'curve25519-dalek/src/backend/vector/scalar_mul/variable_base.rs', lines 3:0-6:2
@@ -415,4 +420,14 @@ axiom edwards.EdwardsPoint.Insts.CoreIterTraitsAccumSum.sum
 axiom
   backend.serial.u64.field.FieldElement51.Insts.CoreCmpEq.assert_fields_are_eq
   : backend.serial.u64.field.FieldElement51 → Result Unit
+
+/-- [curve25519_dalek::backend::serial::u64::scalar::{…Scalar52}::sub::black_box]:
+    Source: 'curve25519-dalek/src/backend/serial/u64/scalar.rs', lines 179:8-183:9
+
+    MODEL (faithful, ported from the CurveScalar-era external): the Rust body
+    is `unsafe { core::ptr::read_volatile(&value) }` — a volatile read whose
+    value is exactly the value written; semantically the identity on `u64`. -/
+def backend.serial.u64.scalar.Scalar52.sub.black_box
+  (value : Std.U64) : Result Std.U64 :=
+  ok value
 

@@ -242,39 +242,10 @@ axiom U64.Insts.SubtleConditionallySelectable.conditional_swap
     Source: 'curve25519-dalek/src/backend/mod.rs', lines 55:0-75:1 -/
 axiom backend.get_selected_backend : Result backend.BackendKind
 
-/-- [curve25519_dalek::backend::vector::scalar_mul::variable_base::spec_avx512ifma_avx512vl::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/variable_base.rs', lines 3:0-6:2
-    Visibility: public -/
-axiom backend.vector.scalar_mul.variable_base.spec_avx512ifma_avx512vl.mul
-  : edwards.EdwardsPoint → scalar.Scalar → Result edwards.EdwardsPoint
-
-/-- [curve25519_dalek::backend::vector::scalar_mul::variable_base::spec_avx2::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/variable_base.rs', lines 3:0-6:2
-    Visibility: public -/
-axiom backend.vector.scalar_mul.variable_base.spec_avx2.mul
-  : edwards.EdwardsPoint → scalar.Scalar → Result edwards.EdwardsPoint
-
 /-- [curve25519_dalek::backend::serial::scalar_mul::variable_base::mul]:
     Source: 'curve25519-dalek/src/backend/serial/scalar_mul/variable_base.rs', lines 11:0-48:1 -/
 axiom backend.serial.scalar_mul.variable_base.mul
   : edwards.EdwardsPoint → scalar.Scalar → Result edwards.EdwardsPoint
-
-/-- [curve25519_dalek::backend::vector::scalar_mul::vartime_double_base::spec_avx512ifma_avx512vl::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/vartime_double_base.rs', lines 14:0-17:2
-    Visibility: public -/
-axiom
-  backend.vector.scalar_mul.vartime_double_base.spec_avx512ifma_avx512vl.mul
-  :
-  scalar.Scalar → edwards.EdwardsPoint → scalar.Scalar → Result
-    edwards.EdwardsPoint
-
-/-- [curve25519_dalek::backend::vector::scalar_mul::vartime_double_base::spec_avx2::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/vartime_double_base.rs', lines 14:0-17:2
-    Visibility: public -/
-axiom backend.vector.scalar_mul.vartime_double_base.spec_avx2.mul
-  :
-  scalar.Scalar → edwards.EdwardsPoint → scalar.Scalar → Result
-    edwards.EdwardsPoint
 
 /-- [curve25519_dalek::backend::serial::curve_models::{impl subtle::ConditionallySelectable for curve25519_dalek::backend::serial::curve_models::ProjectiveNielsPoint}::conditional_swap]:
     Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 295:0-311:1
@@ -297,6 +268,11 @@ axiom
     backend.serial.curve_models.AffineNielsPoint → subtle.Choice → Result
     (backend.serial.curve_models.AffineNielsPoint ×
     backend.serial.curve_models.AffineNielsPoint)
+
+/-- [curve25519_dalek::backend::serial::u64::scalar::{curve25519_dalek::backend::serial::u64::scalar::Scalar52}::sub::black_box]:
+    Source: 'curve25519-dalek/src/backend/serial/u64/scalar.rs', lines 205:8-209:9 -/
+axiom backend.serial.u64.scalar.Scalar52.sub.black_box
+  : Std.U64 → Result Std.U64
 
 /-- [curve25519_dalek::edwards::decompress::step_2]:
     Source: 'curve25519-dalek/src/edwards.rs', lines 223:4-240:5 -/

@@ -23,13 +23,31 @@ source ~/aeneas-toolchain/env.sh
 HERE="$(cd "$(dirname "$0")" && pwd)"
 CRATE=~/GitClone/FormalVerification/sources/risc0-curve25519-dalek-source/curve25519-dalek
 
-echo "[1/2] charon: Rust -> LLBC (field + curve_models + edwards)"
+echo "[1/2] charon: Rust -> LLBC (field + curve_models + edwards + scalar [MERGED GEN])"
 cd "$CRATE"
+# Force the portable SERIAL backend (the one we verify): the SIMD dispatch
+# arm is `#[cfg(curve25519_dalek_backend = "simd")]`, so pinning the cfg to
+# "serial" removes it from the extraction — no vector-backend axiom leaks in.
+export RUSTFLAGS='--cfg curve25519_dalek_backend="serial"'
 charon cargo --preset=aeneas \
   --start-from crate::field \
   --start-from crate::backend::serial::u64::field \
   --start-from crate::backend::serial::curve_models \
   --start-from crate::edwards \
+  --start-from 'crate::backend::serial::u64::scalar::_::add' \
+  --start-from 'crate::backend::serial::u64::scalar::_::sub' \
+  --start-from 'crate::backend::serial::u64::scalar::_::mul' \
+  --start-from 'crate::backend::serial::u64::scalar::_::square' \
+  --start-from 'crate::backend::serial::u64::scalar::_::montgomery_mul' \
+  --start-from 'crate::backend::serial::u64::scalar::_::montgomery_square' \
+  --start-from 'crate::backend::serial::u64::scalar::_::montgomery_reduce' \
+  --start-from 'crate::backend::serial::u64::scalar::_::montgomery_invert' \
+  --start-from 'crate::backend::serial::u64::scalar::_::as_montgomery' \
+  --start-from 'crate::backend::serial::u64::scalar::_::from_montgomery' \
+  --start-from 'crate::backend::serial::u64::scalar::_::from_bytes_wide' \
+  --opaque 'crate::backend::serial::u64::scalar::_::sub::black_box' \
+  --start-from 'crate::scalar::_::from_bytes_mod_order' \
+  --start-from 'crate::scalar::_::from_bytes_mod_order_wide' \
   --opaque 'crate::field::_::internal_invert_batch' \
   --opaque 'crate::backend::serial::scalar_mul::variable_base' \
   --opaque 'crate::backend::serial::scalar_mul::straus' \
