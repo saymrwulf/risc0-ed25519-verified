@@ -61,8 +61,30 @@ charon cargo --preset=aeneas \
   --dest-file "$HERE/CurveField.llbc" \
   -- --no-default-features
 
-echo "[2/2] aeneas: LLBC -> Lean (split files, CurveField.* modules)"
+echo "[2/4] aeneas: LLBC -> Lean (split files, CurveField.* modules)"
 cd "$HERE"
 aeneas -backend lean -split-files -subdir CurveField -dest gen CurveField.llbc
+
+echo "[3/4] charon: ed25519-dalek verify glue -> LLBC (sha512_hash3 opaque)"
+SIGCRATE="$(dirname "$CRATE")/ed25519-dalek"
+cd "$SIGCRATE"
+charon cargo --preset=aeneas \
+  --start-from 'crate::verifying::verify_sha512' \
+  --start-from 'crate::verifying::recompute_r_sha512' \
+  --opaque 'crate::verifying::sha512_hash3' \
+  --opaque 'crate::signature::compressed_from_bytes' \
+  --opaque 'curve25519_dalek' \
+  --opaque 'sha2' --opaque 'digest' --opaque 'ed25519' \
+  --opaque 'signature' --opaque 'subtle' --opaque 'zeroize' \
+  --opaque 'block_buffer' --opaque 'crypto_common' \
+  --exclude 'generic_array' --exclude 'typenum' \
+  --hide-marker-traits \
+  --dest-file "$HERE/CurveSig.llbc" \
+  -- --no-default-features
+
+echo "[4/4] aeneas: LLBC -> Lean (CurveSig.* modules; hand-maintained"
+echo "        TypesExternal.lean / FunsExternal.lean are NOT overwritten)"
+cd "$HERE"
+aeneas -backend lean -split-files -subdir CurveSig -dest gen CurveSig.llbc
 
 echo "Done. Now run ./check.sh to type-check the regenerated model."
