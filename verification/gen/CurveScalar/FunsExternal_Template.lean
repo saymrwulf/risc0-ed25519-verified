@@ -16,7 +16,7 @@ set_option maxRecDepth 2048
 open curve25519_dalek
 
 /-- [curve25519_dalek::backend::serial::u64::scalar::{curve25519_dalek::backend::serial::u64::scalar::Scalar52}::sub::black_box]:
-    Source: 'curve25519-dalek/src/backend/serial/u64/scalar.rs', lines 182:8-186:9 -/
+    Source: 'curve25519-dalek/src/backend/serial/u64/scalar.rs', lines 205:8-209:9 -/
 axiom backend.serial.u64.scalar.Scalar52.sub.black_box
   : Std.U64 → Result Std.U64
 
