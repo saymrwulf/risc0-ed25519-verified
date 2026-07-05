@@ -14,14 +14,14 @@ set_option maxHeartbeats 1000000
 set_option maxRecDepth 2048
 
 /-- [curve25519_dalek::edwards::CompressedEdwardsY]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 165:0-165:29
+    Source: 'curve25519-dalek/src/edwards.rs', lines 164:0-164:29
     Name pattern: [curve25519_dalek::edwards::CompressedEdwardsY]
     Visibility: public -/
 @[rust_type "curve25519_dalek::edwards::CompressedEdwardsY"]
 axiom curve25519_dalek.edwards.CompressedEdwardsY : Type
 
 /-- [curve25519_dalek::edwards::EdwardsPoint]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 371:0-371:23
+    Source: 'curve25519-dalek/src/edwards.rs', lines 376:0-376:23
     Name pattern: [curve25519_dalek::edwards::EdwardsPoint]
     Visibility: public -/
 @[rust_type "curve25519_dalek::edwards::EdwardsPoint"]

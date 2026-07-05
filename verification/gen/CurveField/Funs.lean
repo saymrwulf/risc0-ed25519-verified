@@ -127,7 +127,7 @@ def backend.variable_base_mul
   backend.serial.scalar_mul.variable_base.mul point scalar
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::as_projective]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 522:4-528:5 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 527:4-533:5 -/
 def edwards.EdwardsPoint.as_projective
   (self : edwards.EdwardsPoint) :
   Result backend.serial.curve_models.ProjectivePoint
@@ -737,7 +737,7 @@ def backend.serial.curve_models.CompletedPoint.as_extended
   ok { X := fe, Y := fe1, Z := fe2, T := fe3 }
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::double]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 616:4-618:5 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 621:4-623:5 -/
 def edwards.EdwardsPoint.double
   (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
   let pp ← edwards.EdwardsPoint.as_projective self
@@ -764,7 +764,7 @@ def backend.serial.u64.constants.EDWARDS_D2
       ])
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::as_projective_niels]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 509:4-516:5 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 514:4-521:5 -/
 def edwards.EdwardsPoint.as_projective_niels
   (self : edwards.EdwardsPoint) :
   Result backend.serial.curve_models.ProjectiveNielsPoint
@@ -3849,14 +3849,14 @@ def constants.BASEPOINT_ORDER_PRIVATE : scalar.Scalar :=
   }
 
 /-- [curve25519_dalek::edwards::{impl core::clone::Clone for curve25519_dalek::edwards::CompressedEdwardsY}::clone]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:15-164:20
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:15-163:20
     Visibility: public -/
 def edwards.CompressedEdwardsY.Insts.CoreCloneClone.clone
   (self : edwards.CompressedEdwardsY) : Result edwards.CompressedEdwardsY := do
   ok self
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::clone::Clone for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:15-164:20 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:15-163:20 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreCloneClone : core.clone.Clone
   edwards.CompressedEdwardsY := {
@@ -3864,7 +3864,7 @@ def edwards.CompressedEdwardsY.Insts.CoreCloneClone : core.clone.Clone
 }
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::marker::Copy for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:9-164:13 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:9-163:13 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreMarkerCopy : core.marker.Copy
   edwards.CompressedEdwardsY := {
@@ -3872,7 +3872,7 @@ def edwards.CompressedEdwardsY.Insts.CoreMarkerCopy : core.marker.Copy
 }
 
 /-- [curve25519_dalek::edwards::{impl core::cmp::PartialEq<curve25519_dalek::edwards::CompressedEdwardsY> for curve25519_dalek::edwards::CompressedEdwardsY}::eq]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:26-164:35
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:26-163:35
     Visibility: public -/
 def edwards.CompressedEdwardsY.Insts.CoreCmpPartialEqCompressedEdwardsY.eq
   (self : edwards.CompressedEdwardsY) (other : edwards.CompressedEdwardsY) :
@@ -3881,7 +3881,7 @@ def edwards.CompressedEdwardsY.Insts.CoreCmpPartialEqCompressedEdwardsY.eq
   core.array.equality.PartialEqArray.eq core.cmp.PartialEqU8 self other
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::cmp::PartialEq<curve25519_dalek::edwards::CompressedEdwardsY> for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:26-164:35 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:26-163:35 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreCmpPartialEqCompressedEdwardsY :
   core.cmp.PartialEq edwards.CompressedEdwardsY edwards.CompressedEdwardsY := {
@@ -3889,14 +3889,14 @@ def edwards.CompressedEdwardsY.Insts.CoreCmpPartialEqCompressedEdwardsY :
 }
 
 /-- [curve25519_dalek::edwards::{impl core::cmp::Eq for curve25519_dalek::edwards::CompressedEdwardsY}::assert_fields_are_eq]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:22-164:24
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:22-163:24
     Visibility: public -/
 def edwards.CompressedEdwardsY.Insts.CoreCmpEq.assert_fields_are_eq
   (self : edwards.CompressedEdwardsY) : Result Unit := do
   ok ()
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::cmp::Eq for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:22-164:24 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:22-163:24 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreCmpEq : core.cmp.Eq
   edwards.CompressedEdwardsY := {
@@ -3907,14 +3907,14 @@ def edwards.CompressedEdwardsY.Insts.CoreCmpEq : core.cmp.Eq
 }
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::marker::StructuralPartialEq for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:26-164:35 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:26-163:35 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreMarkerStructuralPartialEq :
   core.marker.StructuralPartialEq edwards.CompressedEdwardsY := {
 }
 
 /-- [curve25519_dalek::edwards::{impl core::hash::Hash for curve25519_dalek::edwards::CompressedEdwardsY}::hash]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:37-164:41
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:37-163:41
     Visibility: public -/
 def edwards.CompressedEdwardsY.Insts.CoreHashHash.hash
   {__H : Type} (corehashHasherInst : core.hash.Hasher __H)
@@ -3925,7 +3925,7 @@ def edwards.CompressedEdwardsY.Insts.CoreHashHash.hash
     state
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::hash::Hash for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 164:37-164:41 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 163:37-163:41 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreHashHash : core.hash.Hash
   edwards.CompressedEdwardsY := {
@@ -3934,14 +3934,14 @@ def edwards.CompressedEdwardsY.Insts.CoreHashHash : core.hash.Hash
 }
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::as_bytes]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 181:4-183:5
+    Source: 'curve25519-dalek/src/edwards.rs', lines 180:4-182:5
     Visibility: public -/
 def edwards.CompressedEdwardsY.as_bytes
   (self : edwards.CompressedEdwardsY) : Result (Array Std.U8 32#usize) := do
   ok self
 
 /-- [curve25519_dalek::edwards::{impl subtle::ConstantTimeEq for curve25519_dalek::edwards::CompressedEdwardsY}::ct_eq]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 168:4-170:5
+    Source: 'curve25519-dalek/src/edwards.rs', lines 167:4-169:5
     Visibility: public -/
 def edwards.CompressedEdwardsY.Insts.SubtleConstantTimeEq.ct_eq
   (self : edwards.CompressedEdwardsY) (other : edwards.CompressedEdwardsY) :
@@ -3954,7 +3954,7 @@ def edwards.CompressedEdwardsY.Insts.SubtleConstantTimeEq.ct_eq
   Slice.Insts.SubtleConstantTimeEq.ct_eq U8.Insts.SubtleConstantTimeEq s s1
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl subtle::ConstantTimeEq for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 167:0-171:1 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 166:0-170:1 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.SubtleConstantTimeEq :
   subtle.ConstantTimeEq edwards.CompressedEdwardsY := {
@@ -3962,7 +3962,7 @@ def edwards.CompressedEdwardsY.Insts.SubtleConstantTimeEq :
 }
 
 /-- [curve25519_dalek::edwards::{impl core::fmt::Debug for curve25519_dalek::edwards::CompressedEdwardsY}::fmt]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 174:4-176:5
+    Source: 'curve25519-dalek/src/edwards.rs', lines 173:4-175:5
     Visibility: public -/
 def edwards.CompressedEdwardsY.Insts.CoreFmtDebug.fmt
   (self : edwards.CompressedEdwardsY) (f : core.fmt.Formatter) :
@@ -3982,7 +3982,7 @@ def edwards.CompressedEdwardsY.Insts.CoreFmtDebug.fmt
   core.fmt.Formatter.write_fmt f a1
 
 /-- Trait implementation: [curve25519_dalek::edwards::{impl core::fmt::Debug for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 173:0-177:1 -/
+    Source: 'curve25519-dalek/src/edwards.rs', lines 172:0-176:1 -/
 @[reducible]
 def edwards.CompressedEdwardsY.Insts.CoreFmtDebug : core.fmt.Debug
   edwards.CompressedEdwardsY := {
@@ -3990,270 +3990,33 @@ def edwards.CompressedEdwardsY.Insts.CoreFmtDebug : core.fmt.Debug
 }
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::to_bytes]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 186:4-188:5
+    Source: 'curve25519-dalek/src/edwards.rs', lines 185:4-187:5
     Visibility: public -/
 def edwards.CompressedEdwardsY.to_bytes
   (self : edwards.CompressedEdwardsY) : Result (Array Std.U8 32#usize) := do
   ok self
 
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::decompress]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 194:4-202:5
-    Visibility: public -/
-def edwards.CompressedEdwardsY.decompress
-  (self : edwards.CompressedEdwardsY) :
-  Result (Option edwards.EdwardsPoint)
-  := do
-  let (is_valid_y_coord, X, Y, Z) ← edwards.decompress.step_1 self
-  let b ←
-    core.convert.IntoFrom.into Bool.Insts.CoreConvertFromChoice
-      is_valid_y_coord
-  if b
-  then let ep ← edwards.decompress.step_2 self X Y Z
-       ok (some ep)
-  else ok none
-
-/-- [curve25519_dalek::edwards::{impl core::convert::TryFrom<&'_0 [u8], core::array::TryFromSliceError> for curve25519_dalek::edwards::CompressedEdwardsY}::try_from]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 246:4-248:5
-    Visibility: public -/
-def
-  edwards.CompressedEdwardsY.Insts.CoreConvertTryFromShared0SliceU8TryFromSliceError.try_from
-  (slice : Slice Std.U8) :
-  Result (core.result.Result edwards.CompressedEdwardsY
-    core.array.TryFromSliceError)
-  := do
-  edwards.CompressedEdwardsY.from_slice slice
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::convert::TryFrom<&'_0 [u8], core::array::TryFromSliceError> for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 243:0-249:1 -/
-@[reducible]
-def
-  edwards.CompressedEdwardsY.Insts.CoreConvertTryFromShared0SliceU8TryFromSliceError
-  : core.convert.TryFrom edwards.CompressedEdwardsY (Slice Std.U8)
-  core.array.TryFromSliceError := {
-  try_from :=
-    edwards.CompressedEdwardsY.Insts.CoreConvertTryFromShared0SliceU8TryFromSliceError.try_from
-}
-
-/-- [curve25519_dalek::edwards::{impl core::clone::Clone for curve25519_dalek::edwards::EdwardsPoint}::clone]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 369:15-369:20
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.CoreCloneClone.clone
-  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
-  ok self
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::clone::Clone for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 369:15-369:20 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreCloneClone : core.clone.Clone
-  edwards.EdwardsPoint := {
-  clone := edwards.EdwardsPoint.Insts.CoreCloneClone.clone
-}
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::marker::Copy for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 369:9-369:13 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreMarkerCopy : core.marker.Copy
-  edwards.EdwardsPoint := {
-  cloneInst := edwards.EdwardsPoint.Insts.CoreCloneClone
-}
-
-/-- [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::CompressedEdwardsY}::identity]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 383:4-388:5
-    Visibility: public -/
-def edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity.identity
-  : Result edwards.CompressedEdwardsY := do
-  ok
-    (Array.make 32#usize [
-      1#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8,
-      0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8,
-      0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8
-      ])
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 382:0-389:1 -/
-@[reducible]
-def edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity :
-  traits.Identity edwards.CompressedEdwardsY := {
-  identity :=
-    edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity.identity
-}
-
-/-- [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::CompressedEdwardsY}::default]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 392:4-394:5
-    Visibility: public -/
-def edwards.CompressedEdwardsY.Insts.CoreDefaultDefault.default
-  : Result edwards.CompressedEdwardsY := do
-  edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity.identity
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::CompressedEdwardsY}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 391:0-395:1 -/
-@[reducible]
-def edwards.CompressedEdwardsY.Insts.CoreDefaultDefault : core.default.Default
-  edwards.CompressedEdwardsY := {
-  default := edwards.CompressedEdwardsY.Insts.CoreDefaultDefault.default
-}
-
-/-- [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::EdwardsPoint}::identity]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 410:4-417:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity.identity
-  : Result edwards.EdwardsPoint := do
-  let fe ← backend.serial.u64.field.FieldElement51.ZERO
-  let fe1 ← backend.serial.u64.field.FieldElement51.ONE
-  ok { X := fe, Y := fe1, Z := fe1, T := fe }
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 409:0-418:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity : traits.Identity
-  edwards.EdwardsPoint := {
-  identity :=
-    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity.identity
-}
-
-/-- [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::EdwardsPoint}::default]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 421:4-423:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.CoreDefaultDefault.default
-  : Result edwards.EdwardsPoint := do
-  edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity.identity
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 420:0-424:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreDefaultDefault : core.default.Default
-  edwards.EdwardsPoint := {
-  default := edwards.EdwardsPoint.Insts.CoreDefaultDefault.default
-}
-
-/-- [curve25519_dalek::edwards::{impl curve25519_dalek::traits::ValidityCheck for curve25519_dalek::edwards::EdwardsPoint}::is_valid]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 455:4-460:5 -/
-def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsValidityCheck.is_valid
-  (self : edwards.EdwardsPoint) : Result Bool := do
-  let pp ← edwards.EdwardsPoint.as_projective self
-  let point_on_curve ←
-    backend.serial.curve_models.ProjectivePoint.Insts.Curve25519_dalekTraitsValidityCheck.is_valid
-      pp
-  let fe ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.X self.Y
-  let fe1 ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.Z self.T
-  let on_segre_image ←
-    backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51.eq
-      fe fe1
-  if point_on_curve
-  then ok on_segre_image
-  else ok false
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl curve25519_dalek::traits::ValidityCheck for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 454:0-461:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsValidityCheck :
-  traits.ValidityCheck edwards.EdwardsPoint := {
-  is_valid :=
-    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsValidityCheck.is_valid
-}
-
-/-- [curve25519_dalek::edwards::{impl subtle::ConditionallySelectable for curve25519_dalek::edwards::EdwardsPoint}::conditional_select]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 468:4-475:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_select
-  (a : edwards.EdwardsPoint) (b : edwards.EdwardsPoint)
-  (choice : subtle.Choice) :
+/-- [curve25519_dalek::edwards::decompress::step_2]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 222:4-245:5 -/
+def edwards.decompress.step_2
+  (repr : edwards.CompressedEdwardsY)
+  (X : backend.serial.u64.field.FieldElement51)
+  (Y : backend.serial.u64.field.FieldElement51)
+  (Z : backend.serial.u64.field.FieldElement51) :
   Result edwards.EdwardsPoint
   := do
-  let fe ←
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
-      a.X b.X choice
-  let fe1 ←
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
-      a.Y b.Y choice
-  let fe2 ←
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
-      a.Z b.Z choice
-  let fe3 ←
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
-      a.T b.T choice
-  ok { X := fe, Y := fe1, Z := fe2, T := fe3 }
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl subtle::ConditionallySelectable for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 467:0-476:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.SubtleConditionallySelectable :
-  subtle.ConditionallySelectable edwards.EdwardsPoint := {
-  coremarkerCopyInst := edwards.EdwardsPoint.Insts.CoreMarkerCopy
-  conditional_select :=
-    edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_select
-  conditional_assign :=
-    edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_assign
-  conditional_swap :=
-    edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_swap
-}
-
-/-- [curve25519_dalek::edwards::{impl subtle::ConstantTimeEq for curve25519_dalek::edwards::EdwardsPoint}::ct_eq]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 483:4-492:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.SubtleConstantTimeEq.ct_eq
-  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
-  Result subtle.Choice
-  := do
+  let a ← edwards.CompressedEdwardsY.as_bytes repr
+  let i ← Array.index_usize a 31#usize
+  let i1 ← i >>> 7#i32
+  let compressed_sign_bit ← subtle.Choice.Insts.CoreConvertFromU8.from i1
+  let X_neg ← SharedAFieldElement51.Insts.CoreOpsArithNegFieldElement51.neg X
+  let X1 ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_assign
+      X X_neg compressed_sign_bit
   let fe ←
     SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.X other.Z
-  let fe1 ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      other.X self.Z
-  let c ←
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq.ct_eq fe
-      fe1
-  let fe2 ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.Y other.Z
-  let fe3 ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      other.Y self.Z
-  let c1 ←
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq.ct_eq
-      fe2 fe3
-  subtle.Choice.Insts.CoreOpsBitBitAndChoiceChoice.bitand c c1
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl subtle::ConstantTimeEq for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 482:0-493:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.SubtleConstantTimeEq : subtle.ConstantTimeEq
-  edwards.EdwardsPoint := {
-  ct_eq := edwards.EdwardsPoint.Insts.SubtleConstantTimeEq.ct_eq
-}
-
-/-- [curve25519_dalek::edwards::{impl core::cmp::PartialEq<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::eq]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 496:4-498:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint.eq
-  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
-  Result Bool
-  := do
-  let c ← edwards.EdwardsPoint.Insts.SubtleConstantTimeEq.ct_eq self other
-  core.convert.IntoFrom.into Bool.Insts.CoreConvertFromChoice c
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::cmp::PartialEq<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 495:0-499:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint :
-  core.cmp.PartialEq edwards.EdwardsPoint edwards.EdwardsPoint := {
-  eq := edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint.eq
-}
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::cmp::Eq for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 501:0-501:27 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreCmpEq : core.cmp.Eq edwards.EdwardsPoint
-  := {
-  partialEqInst := edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint
-  assert_fields_are_eq :=
-    edwards.EdwardsPoint.Insts.CoreCmpEq.assert_fields_are_eq
-}
+      X1 Y
+  ok { X := X1, Y, Z, T := fe }
 
 /-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::pow22501]:
     Source: 'curve25519-dalek/src/field.rs', lines 128:4-162:5 -/
@@ -4305,530 +4068,6 @@ def field.FieldElement51.pow22501
       t18 t13
   ok (t19, t3)
 
-/-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::invert]:
-    Source: 'curve25519-dalek/src/field.rs', lines 213:4-222:5 -/
-def field.FieldElement51.invert
-  (self : backend.serial.u64.field.FieldElement51) :
-  Result backend.serial.u64.field.FieldElement51
-  := do
-  let (t19, t3) ← field.FieldElement51.pow22501 self
-  let t20 ← backend.serial.u64.field.FieldElement51.pow2k t19 5#u32
-  SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-    t20 t3
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::as_affine_niels]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 532:4-542:5 -/
-def edwards.EdwardsPoint.as_affine_niels
-  (self : edwards.EdwardsPoint) :
-  Result backend.serial.curve_models.AffineNielsPoint
-  := do
-  let recip ← field.FieldElement51.invert self.Z
-  let x ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.X recip
-  let y ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.Y recip
-  let fe ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      x y
-  let fe1 ← backend.serial.u64.constants.EDWARDS_D2
-  let xy2d ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      fe fe1
-  let fe2 ←
-    SharedAFieldElement51.Insts.CoreOpsArithAddSharedBFieldElement51FieldElement51.add
-      y x
-  let fe3 ←
-    SharedAFieldElement51.Insts.CoreOpsArithSubSharedBFieldElement51FieldElement51.sub
-      y x
-  ok { y_plus_x := fe2, y_minus_x := fe3, xy2d }
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::to_montgomery]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 553:4-563:5
-    Visibility: public -/
-def edwards.EdwardsPoint.to_montgomery
-  (self : edwards.EdwardsPoint) : Result montgomery.MontgomeryPoint := do
-  let U ←
-    SharedAFieldElement51.Insts.CoreOpsArithAddSharedBFieldElement51FieldElement51.add
-      self.Z self.Y
-  let W ←
-    SharedAFieldElement51.Insts.CoreOpsArithSubSharedBFieldElement51FieldElement51.sub
-      self.Z self.Y
-  let fe ← field.FieldElement51.invert W
-  let u ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      U fe
-  let a ← backend.serial.u64.field.FieldElement51.as_bytes u
-  ok a
-
-/-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::is_negative]:
-    Source: 'curve25519-dalek/src/field.rs', lines 108:4-111:5 -/
-def field.FieldElement51.is_negative
-  (self : backend.serial.u64.field.FieldElement51) : Result subtle.Choice := do
-  let bytes ← backend.serial.u64.field.FieldElement51.as_bytes self
-  let i ← Array.index_usize bytes 0#usize
-  let i1 ← lift (i &&& 1#u8)
-  core.convert.IntoFrom.into subtle.Choice.Insts.CoreConvertFromU8 i1
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::compress]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 566:4-575:5
-    Visibility: public -/
-def edwards.EdwardsPoint.compress
-  (self : edwards.EdwardsPoint) : Result edwards.CompressedEdwardsY := do
-  let recip ← field.FieldElement51.invert self.Z
-  let x ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.X recip
-  let y ←
-    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
-      self.Y recip
-  let s ← backend.serial.u64.field.FieldElement51.as_bytes y
-  let c ← field.FieldElement51.is_negative x
-  let i ← subtle.Choice.unwrap_u8 c
-  let i1 ← i <<< 7#i32
-  let i2 ← Array.index_usize s 31#usize
-  let i3 ← lift (i2 ^^^ i1)
-  let s1 ← Array.update s 31#usize i3
-  ok s1
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Add<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::add]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 627:4-629:5
-    Visibility: public -/
-def
-  SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint.add
-  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  let pnp ← edwards.EdwardsPoint.as_projective_niels other
-  let cp ←
-    SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBProjectiveNielsPointCompletedPoint.add
-      self pnp
-  backend.serial.curve_models.CompletedPoint.as_extended cp
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Add<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 625:0-630:1 -/
-@[reducible]
-def SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint :
-  core.ops.arith.Add edwards.EdwardsPoint edwards.EdwardsPoint
-  edwards.EdwardsPoint := {
-  add :=
-    SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint.add
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::AddAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::add_assign]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 639:4-641:5
-    Visibility: public -/
-def
-  edwards.EdwardsPoint.Insts.CoreOpsArithAddAssignSharedBEdwardsPoint.add_assign
-  (self : edwards.EdwardsPoint) (_rhs : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint.add
-    self _rhs
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::AddAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 638:0-642:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreOpsArithAddAssignSharedBEdwardsPoint :
-  core.ops.arith.AddAssign edwards.EdwardsPoint edwards.EdwardsPoint := {
-  add_assign :=
-    edwards.EdwardsPoint.Insts.CoreOpsArithAddAssignSharedBEdwardsPoint.add_assign
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Sub<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::sub]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 648:4-650:5
-    Visibility: public -/
-def
-  SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint.sub
-  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  let pnp ← edwards.EdwardsPoint.as_projective_niels other
-  let cp ←
-    SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBProjectiveNielsPointCompletedPoint.sub
-      self pnp
-  backend.serial.curve_models.CompletedPoint.as_extended cp
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Sub<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 646:0-651:1 -/
-@[reducible]
-def SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint :
-  core.ops.arith.Sub edwards.EdwardsPoint edwards.EdwardsPoint
-  edwards.EdwardsPoint := {
-  sub :=
-    SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint.sub
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::SubAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::sub_assign]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 660:4-662:5
-    Visibility: public -/
-def
-  edwards.EdwardsPoint.Insts.CoreOpsArithSubAssignSharedBEdwardsPoint.sub_assign
-  (self : edwards.EdwardsPoint) (_rhs : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint.sub
-    self _rhs
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::SubAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 659:0-663:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreOpsArithSubAssignSharedBEdwardsPoint :
-  core.ops.arith.SubAssign edwards.EdwardsPoint edwards.EdwardsPoint := {
-  sub_assign :=
-    edwards.EdwardsPoint.Insts.CoreOpsArithSubAssignSharedBEdwardsPoint.sub_assign
-}
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::iter::traits::accum::Sum<T> for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 667:0-677:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreIterTraitsAccumSum {T : Type}
-  (coreborrowBorrowTEdwardsPointInst : core.borrow.Borrow T
-  edwards.EdwardsPoint) : core.iter.traits.accum.Sum edwards.EdwardsPoint T
-  := {
-  sum := fun {I : Type} (coreitertraitsiteratorIteratorInst :
-    core.iter.traits.iterator.Iterator I T) =>
-    edwards.EdwardsPoint.Insts.CoreIterTraitsAccumSum.sum
-    coreborrowBorrowTEdwardsPointInst coreitertraitsiteratorIteratorInst
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::neg]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 686:4-693:5
-    Visibility: public -/
-def SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
-  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
-  let fe ←
-    SharedAFieldElement51.Insts.CoreOpsArithNegFieldElement51.neg self.X
-  let fe1 ←
-    SharedAFieldElement51.Insts.CoreOpsArithNegFieldElement51.neg self.T
-  ok { self with X := fe, T := fe1 }
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 683:0-694:1 -/
-@[reducible]
-def SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint : core.ops.arith.Neg
-  edwards.EdwardsPoint edwards.EdwardsPoint := {
-  neg := SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::neg]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 699:4-701:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
-  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
-  SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg self
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 696:0-702:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint : core.ops.arith.Neg
-  edwards.EdwardsPoint edwards.EdwardsPoint := {
-  neg := edwards.EdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::scalar::Scalar, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::mul]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 726:4-728:5
-    Visibility: public -/
-def SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul
-  (self : edwards.EdwardsPoint) (scalar : scalar.Scalar) :
-  Result edwards.EdwardsPoint
-  := do
-  backend.variable_base_mul self scalar
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::MulAssign<&'b curve25519_dalek::scalar::Scalar> for curve25519_dalek::edwards::EdwardsPoint}::mul_assign]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 709:4-712:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.CoreOpsArithMulAssignSharedBScalar.mul_assign
-  (self : edwards.EdwardsPoint) (scalar : scalar.Scalar) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul self
-    scalar
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::MulAssign<&'b curve25519_dalek::scalar::Scalar> for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 708:0-713:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreOpsArithMulAssignSharedBScalar :
-  core.ops.arith.MulAssign edwards.EdwardsPoint scalar.Scalar := {
-  mul_assign :=
-    edwards.EdwardsPoint.Insts.CoreOpsArithMulAssignSharedBScalar.mul_assign
-}
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::scalar::Scalar, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 720:0-729:1 -/
-@[reducible]
-def SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint :
-  core.ops.arith.Mul edwards.EdwardsPoint scalar.Scalar edwards.EdwardsPoint
-  := {
-  mul := SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::scalar::Scalar}::mul]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 738:4-740:5
-    Visibility: public -/
-def SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul
-  (self : scalar.Scalar) (point : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul point
-    self
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::scalar::Scalar}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 731:0-741:1 -/
-@[reducible]
-def SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint :
-  core.ops.arith.Mul scalar.Scalar edwards.EdwardsPoint edwards.EdwardsPoint
-  := {
-  mul := SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul
-}
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::scalar::Scalar}::mul]:
-    Source: 'curve25519-dalek/src/macros.rs', lines 100:12-102:13
-    Visibility: public -/
-def SharedAScalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul
-  (self : scalar.Scalar) (rhs : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul self
-    rhs
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_base]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 748:4-758:5
-    Visibility: public -/
-def edwards.EdwardsPoint.mul_base
-  (scalar : scalar.Scalar) : Result edwards.EdwardsPoint := do
-  let ep ← backend.serial.u64.constants.ED25519_BASEPOINT_POINT
-  SharedAScalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul scalar ep
-
-/-- [curve25519_dalek::scalar::clamp_integer]:
-    Source: 'curve25519-dalek/src/scalar.rs', lines 1420:0-1425:1
-    Visibility: public -/
-def scalar.clamp_integer
-  (bytes : Array Std.U8 32#usize) : Result (Array Std.U8 32#usize) := do
-  let i ← Array.index_usize bytes 0#usize
-  let i1 ← lift (i &&& 248#u8)
-  let bytes1 ← Array.update bytes 0#usize i1
-  let i2 ← Array.index_usize bytes1 31#usize
-  let i3 ← lift (i2 &&& 127#u8)
-  let bytes2 ← Array.update bytes1 31#usize i3
-  let i4 ← Array.index_usize bytes2 31#usize
-  let i5 ← lift (i4 ||| 64#u8)
-  Array.update bytes2 31#usize i5
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::scalar::Scalar}::mul]:
-    Source: 'curve25519-dalek/src/macros.rs', lines 107:12-109:13
-    Visibility: public -/
-def scalar.Scalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul
-  (self : scalar.Scalar) (rhs : edwards.EdwardsPoint) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul self
-    rhs
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_clamped]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 762:4-774:5
-    Visibility: public -/
-def edwards.EdwardsPoint.mul_clamped
-  (self : edwards.EdwardsPoint) (bytes : Array Std.U8 32#usize) :
-  Result edwards.EdwardsPoint
-  := do
-  let a ← scalar.clamp_integer bytes
-  scalar.Scalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul
-    { bytes := a } self
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_base_clamped]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 778:4-786:5
-    Visibility: public -/
-def edwards.EdwardsPoint.mul_base_clamped
-  (bytes : Array Std.U8 32#usize) : Result edwards.EdwardsPoint := do
-  let a ← scalar.clamp_integer bytes
-  edwards.EdwardsPoint.mul_base { bytes := a }
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::vartime_double_scalar_mul_basepoint]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 902:4-908:5
-    Visibility: public -/
-def edwards.EdwardsPoint.vartime_double_scalar_mul_basepoint
-  (a : scalar.Scalar) (A : edwards.EdwardsPoint) (b : scalar.Scalar) :
-  Result edwards.EdwardsPoint
-  := do
-  backend.vartime_double_base_mul a A b
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_pow_2]: loop body 0:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1196:8-1199:9 -/
-@[rust_loop_body]
-def edwards.EdwardsPoint.mul_by_pow_2_loop.body
-  (iter : core.ops.range.Range Std.U32)
-  (s : backend.serial.curve_models.ProjectivePoint) :
-  Result (ControlFlow ((core.ops.range.Range Std.U32) ×
-    backend.serial.curve_models.ProjectivePoint)
-    backend.serial.curve_models.ProjectivePoint)
-  := do
-  let (o, iter1) ←
-    core.iter.range.IteratorRange.next U32.Insts.CoreIterRangeStep iter
-  match o with
-  | none => ok (done s)
-  | some _ =>
-    let r ← backend.serial.curve_models.ProjectivePoint.double s
-    let s1 ← backend.serial.curve_models.CompletedPoint.as_projective r
-    ok (cont (iter1, s1))
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_pow_2]: loop 0:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1196:8-1199:9 -/
-@[rust_loop]
-def edwards.EdwardsPoint.mul_by_pow_2_loop
-  (iter : core.ops.range.Range Std.U32)
-  (s : backend.serial.curve_models.ProjectivePoint) :
-  Result backend.serial.curve_models.ProjectivePoint
-  := do
-  loop
-    (fun (iter1, s1) => edwards.EdwardsPoint.mul_by_pow_2_loop.body iter1 s1)
-    (iter, s)
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_pow_2]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1192:4-1202:5 -/
-def edwards.EdwardsPoint.mul_by_pow_2
-  (self : edwards.EdwardsPoint) (k : Std.U32) :
-  Result edwards.EdwardsPoint
-  := do
-  massert (k > 0#u32)
-  let s ← edwards.EdwardsPoint.as_projective self
-  let i ← k - 1#u32
-  let s1 ←
-    edwards.EdwardsPoint.mul_by_pow_2_loop { start := 0#u32, «end» := i } s
-  let cp ← backend.serial.curve_models.ProjectivePoint.double s1
-  backend.serial.curve_models.CompletedPoint.as_extended cp
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_cofactor]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1187:4-1189:5
-    Visibility: public -/
-def edwards.EdwardsPoint.mul_by_cofactor
-  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
-  edwards.EdwardsPoint.mul_by_pow_2 self 3#u32
-
-/-- [curve25519_dalek::traits::{impl curve25519_dalek::traits::IsIdentity for T}::is_identity]:
-    Source: 'curve25519-dalek/src/traits.rs', lines 45:4-47:5
-    Visibility: public -/
-def traits.IsIdentity.Blanket.is_identity
-  {T : Type} (subtleConstantTimeEqInst : subtle.ConstantTimeEq T) (IdentityInst
-  : traits.Identity T) (self : T) :
-  Result Bool
-  := do
-  let t ← IdentityInst.identity
-  let c ← subtleConstantTimeEqInst.ct_eq self t
-  core.convert.IntoFrom.into Bool.Insts.CoreConvertFromChoice c
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::is_small_order]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1227:4-1229:5
-    Visibility: public -/
-def edwards.EdwardsPoint.is_small_order
-  (self : edwards.EdwardsPoint) : Result Bool := do
-  let ep ← edwards.EdwardsPoint.mul_by_cofactor self
-  traits.IsIdentity.Blanket.is_identity
-    edwards.EdwardsPoint.Insts.SubtleConstantTimeEq
-    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity ep
-
-/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<curve25519_dalek::scalar::Scalar, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::mul]:
-    Source: 'curve25519-dalek/src/macros.rs', lines 100:12-102:13
-    Visibility: public -/
-def SharedAEdwardsPoint.Insts.CoreOpsArithMulScalarEdwardsPoint.mul
-  (self : edwards.EdwardsPoint) (rhs : scalar.Scalar) :
-  Result edwards.EdwardsPoint
-  := do
-  SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul self
-    rhs
-
-/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::is_torsion_free]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1257:4-1259:5
-    Visibility: public -/
-def edwards.EdwardsPoint.is_torsion_free
-  (self : edwards.EdwardsPoint) : Result Bool := do
-  let ep ←
-    SharedAEdwardsPoint.Insts.CoreOpsArithMulScalarEdwardsPoint.mul self
-      constants.BASEPOINT_ORDER_PRIVATE
-  traits.IsIdentity.Blanket.is_identity
-    edwards.EdwardsPoint.Insts.SubtleConstantTimeEq
-    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity ep
-
-/-- [curve25519_dalek::edwards::{impl core::fmt::Debug for curve25519_dalek::edwards::EdwardsPoint}::fmt]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1267:4-1273:5
-    Visibility: public -/
-def edwards.EdwardsPoint.Insts.CoreFmtDebug.fmt
-  (self : edwards.EdwardsPoint) (f : core.fmt.Formatter) :
-  Result ((core.result.Result Unit core.fmt.Error) × core.fmt.Formatter)
-  := do
-  let a ←
-    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
-      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.X
-  let a1 ←
-    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
-      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.Y
-  let a2 ←
-    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
-      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.Z
-  let a3 ←
-    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
-      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.T
-  let a4 ←
-    core.fmt.Arguments.new
-      (Array.make 48#usize [
-        18#u8, 69#u8, 100#u8, 119#u8, 97#u8, 114#u8, 100#u8, 115#u8, 80#u8,
-        111#u8, 105#u8, 110#u8, 116#u8, 123#u8, 10#u8, 9#u8, 88#u8, 58#u8,
-        32#u8, 192#u8, 6#u8, 44#u8, 10#u8, 9#u8, 89#u8, 58#u8, 32#u8, 192#u8,
-        6#u8, 44#u8, 10#u8, 9#u8, 90#u8, 58#u8, 32#u8, 192#u8, 6#u8, 44#u8,
-        10#u8, 9#u8, 84#u8, 58#u8, 32#u8, 192#u8, 2#u8, 10#u8, 125#u8, 0#u8
-        ]) (Array.make 4#usize [ a, a1, a2, a3 ])
-  core.fmt.Formatter.write_fmt f a4
-
-/-- Trait implementation: [curve25519_dalek::edwards::{impl core::fmt::Debug for curve25519_dalek::edwards::EdwardsPoint}]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 1266:0-1274:1 -/
-@[reducible]
-def edwards.EdwardsPoint.Insts.CoreFmtDebug : core.fmt.Debug
-  edwards.EdwardsPoint := {
-  fmt := edwards.EdwardsPoint.Insts.CoreFmtDebug.fmt
-}
-
-/-- Trait implementation: [curve25519_dalek::field::{impl core::cmp::PartialEq<curve25519_dalek::backend::serial::u64::field::FieldElement51> for curve25519_dalek::backend::serial::u64::field::FieldElement51}]
-    Source: 'curve25519-dalek/src/field.rs', lines 85:0-89:1 -/
-@[reducible]
-def
-  backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51
-  : core.cmp.PartialEq backend.serial.u64.field.FieldElement51
-  backend.serial.u64.field.FieldElement51 := {
-  eq :=
-    backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51.eq
-}
-
-/-- Trait implementation: [curve25519_dalek::field::{impl core::cmp::Eq for curve25519_dalek::backend::serial::u64::field::FieldElement51}]
-    Source: 'curve25519-dalek/src/field.rs', lines 83:0-83:27 -/
-@[reducible]
-def backend.serial.u64.field.FieldElement51.Insts.CoreCmpEq : core.cmp.Eq
-  backend.serial.u64.field.FieldElement51 := {
-  partialEqInst :=
-    backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51
-  assert_fields_are_eq :=
-    backend.serial.u64.field.FieldElement51.Insts.CoreCmpEq.assert_fields_are_eq
-}
-
-/-- Trait implementation: [curve25519_dalek::field::{impl subtle::ConstantTimeEq for curve25519_dalek::backend::serial::u64::field::FieldElement51}]
-    Source: 'curve25519-dalek/src/field.rs', lines 91:0-98:1 -/
-@[reducible]
-def backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq :
-  subtle.ConstantTimeEq backend.serial.u64.field.FieldElement51 := {
-  ct_eq :=
-    backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq.ct_eq
-}
-
-/-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::is_zero]:
-    Source: 'curve25519-dalek/src/field.rs', lines 118:4-123:5 -/
-def field.FieldElement51.is_zero
-  (self : backend.serial.u64.field.FieldElement51) : Result subtle.Choice := do
-  let zero := Array.repeat 32#usize 0#u8
-  let bytes ← backend.serial.u64.field.FieldElement51.as_bytes self
-  let s ← lift (Array.to_slice bytes)
-  let s1 ← lift (Array.to_slice zero)
-  Slice.Insts.SubtleConstantTimeEq.ct_eq U8.Insts.SubtleConstantTimeEq s s1
-
 /-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::pow_p58]:
     Source: 'curve25519-dalek/src/field.rs', lines 227:4-236:5 -/
 def field.FieldElement51.pow_p58
@@ -4839,6 +4078,15 @@ def field.FieldElement51.pow_p58
   let t20 ← backend.serial.u64.field.FieldElement51.pow2k t19 2#u32
   SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
     self t20
+
+/-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::is_negative]:
+    Source: 'curve25519-dalek/src/field.rs', lines 108:4-111:5 -/
+def field.FieldElement51.is_negative
+  (self : backend.serial.u64.field.FieldElement51) : Result subtle.Choice := do
+  let bytes ← backend.serial.u64.field.FieldElement51.as_bytes self
+  let i ← Array.index_usize bytes 0#usize
+  let i1 ← lift (i &&& 1#u8)
+  core.convert.IntoFrom.into subtle.Choice.Insts.CoreConvertFromU8 i1
 
 /-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::sqrt_ratio_i]:
     Source: 'curve25519-dalek/src/field.rs', lines 250:4-296:5 -/
@@ -4902,6 +4150,805 @@ def field.FieldElement51.sqrt_ratio_i
     subtle.Choice.Insts.CoreOpsBitBitOrChoiceChoice.bitor correct_sign_sqrt
       flipped_sign_sqrt
   ok (was_nonzero_square, r2)
+
+/-- [curve25519_dalek::edwards::decompress::step_1]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 208:4-219:5 -/
+def edwards.decompress.step_1
+  (repr : edwards.CompressedEdwardsY) :
+  Result (subtle.Choice × backend.serial.u64.field.FieldElement51 ×
+    backend.serial.u64.field.FieldElement51 ×
+    backend.serial.u64.field.FieldElement51)
+  := do
+  let a ← edwards.CompressedEdwardsY.as_bytes repr
+  let Y ← backend.serial.u64.field.FieldElement51.from_bytes a
+  let Z ← backend.serial.u64.field.FieldElement51.ONE
+  let YY ← backend.serial.u64.field.FieldElement51.square Y
+  let u ←
+    SharedAFieldElement51.Insts.CoreOpsArithSubSharedBFieldElement51FieldElement51.sub
+      YY Z
+  let fe ← backend.serial.u64.constants.EDWARDS_D
+  let fe1 ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      YY fe
+  let v ←
+    SharedAFieldElement51.Insts.CoreOpsArithAddSharedBFieldElement51FieldElement51.add
+      fe1 Z
+  let (is_valid_y_coord, X) ← field.FieldElement51.sqrt_ratio_i u v
+  ok (is_valid_y_coord, X, Y, Z)
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::decompress]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 193:4-201:5
+    Visibility: public -/
+def edwards.CompressedEdwardsY.decompress
+  (self : edwards.CompressedEdwardsY) :
+  Result (Option edwards.EdwardsPoint)
+  := do
+  let (is_valid_y_coord, X, Y, Z) ← edwards.decompress.step_1 self
+  let b ←
+    core.convert.IntoFrom.into Bool.Insts.CoreConvertFromChoice
+      is_valid_y_coord
+  if b
+  then let ep ← edwards.decompress.step_2 self X Y Z
+       ok (some ep)
+  else ok none
+
+/-- [curve25519_dalek::edwards::{impl core::convert::TryFrom<&'_0 [u8], core::array::TryFromSliceError> for curve25519_dalek::edwards::CompressedEdwardsY}::try_from]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 251:4-253:5
+    Visibility: public -/
+def
+  edwards.CompressedEdwardsY.Insts.CoreConvertTryFromShared0SliceU8TryFromSliceError.try_from
+  (slice : Slice Std.U8) :
+  Result (core.result.Result edwards.CompressedEdwardsY
+    core.array.TryFromSliceError)
+  := do
+  edwards.CompressedEdwardsY.from_slice slice
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::convert::TryFrom<&'_0 [u8], core::array::TryFromSliceError> for curve25519_dalek::edwards::CompressedEdwardsY}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 248:0-254:1 -/
+@[reducible]
+def
+  edwards.CompressedEdwardsY.Insts.CoreConvertTryFromShared0SliceU8TryFromSliceError
+  : core.convert.TryFrom edwards.CompressedEdwardsY (Slice Std.U8)
+  core.array.TryFromSliceError := {
+  try_from :=
+    edwards.CompressedEdwardsY.Insts.CoreConvertTryFromShared0SliceU8TryFromSliceError.try_from
+}
+
+/-- [curve25519_dalek::edwards::{impl core::clone::Clone for curve25519_dalek::edwards::EdwardsPoint}::clone]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 374:15-374:20
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.CoreCloneClone.clone
+  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
+  ok self
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::clone::Clone for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 374:15-374:20 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreCloneClone : core.clone.Clone
+  edwards.EdwardsPoint := {
+  clone := edwards.EdwardsPoint.Insts.CoreCloneClone.clone
+}
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::marker::Copy for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 374:9-374:13 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreMarkerCopy : core.marker.Copy
+  edwards.EdwardsPoint := {
+  cloneInst := edwards.EdwardsPoint.Insts.CoreCloneClone
+}
+
+/-- [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::CompressedEdwardsY}::identity]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 388:4-393:5
+    Visibility: public -/
+def edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity.identity
+  : Result edwards.CompressedEdwardsY := do
+  ok
+    (Array.make 32#usize [
+      1#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8,
+      0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8,
+      0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8, 0#u8
+      ])
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::CompressedEdwardsY}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 387:0-394:1 -/
+@[reducible]
+def edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity :
+  traits.Identity edwards.CompressedEdwardsY := {
+  identity :=
+    edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity.identity
+}
+
+/-- [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::CompressedEdwardsY}::default]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 397:4-399:5
+    Visibility: public -/
+def edwards.CompressedEdwardsY.Insts.CoreDefaultDefault.default
+  : Result edwards.CompressedEdwardsY := do
+  edwards.CompressedEdwardsY.Insts.Curve25519_dalekTraitsIdentity.identity
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::CompressedEdwardsY}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 396:0-400:1 -/
+@[reducible]
+def edwards.CompressedEdwardsY.Insts.CoreDefaultDefault : core.default.Default
+  edwards.CompressedEdwardsY := {
+  default := edwards.CompressedEdwardsY.Insts.CoreDefaultDefault.default
+}
+
+/-- [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::EdwardsPoint}::identity]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 415:4-422:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity.identity
+  : Result edwards.EdwardsPoint := do
+  let fe ← backend.serial.u64.field.FieldElement51.ZERO
+  let fe1 ← backend.serial.u64.field.FieldElement51.ONE
+  ok { X := fe, Y := fe1, Z := fe1, T := fe }
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl curve25519_dalek::traits::Identity for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 414:0-423:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity : traits.Identity
+  edwards.EdwardsPoint := {
+  identity :=
+    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity.identity
+}
+
+/-- [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::EdwardsPoint}::default]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 426:4-428:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.CoreDefaultDefault.default
+  : Result edwards.EdwardsPoint := do
+  edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity.identity
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::default::Default for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 425:0-429:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreDefaultDefault : core.default.Default
+  edwards.EdwardsPoint := {
+  default := edwards.EdwardsPoint.Insts.CoreDefaultDefault.default
+}
+
+/-- [curve25519_dalek::edwards::{impl curve25519_dalek::traits::ValidityCheck for curve25519_dalek::edwards::EdwardsPoint}::is_valid]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 460:4-465:5 -/
+def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsValidityCheck.is_valid
+  (self : edwards.EdwardsPoint) : Result Bool := do
+  let pp ← edwards.EdwardsPoint.as_projective self
+  let point_on_curve ←
+    backend.serial.curve_models.ProjectivePoint.Insts.Curve25519_dalekTraitsValidityCheck.is_valid
+      pp
+  let fe ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.X self.Y
+  let fe1 ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.Z self.T
+  let on_segre_image ←
+    backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51.eq
+      fe fe1
+  if point_on_curve
+  then ok on_segre_image
+  else ok false
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl curve25519_dalek::traits::ValidityCheck for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 459:0-466:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsValidityCheck :
+  traits.ValidityCheck edwards.EdwardsPoint := {
+  is_valid :=
+    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsValidityCheck.is_valid
+}
+
+/-- [curve25519_dalek::edwards::{impl subtle::ConditionallySelectable for curve25519_dalek::edwards::EdwardsPoint}::conditional_select]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 473:4-480:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_select
+  (a : edwards.EdwardsPoint) (b : edwards.EdwardsPoint)
+  (choice : subtle.Choice) :
+  Result edwards.EdwardsPoint
+  := do
+  let fe ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
+      a.X b.X choice
+  let fe1 ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
+      a.Y b.Y choice
+  let fe2 ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
+      a.Z b.Z choice
+  let fe3 ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConditionallySelectable.conditional_select
+      a.T b.T choice
+  ok { X := fe, Y := fe1, Z := fe2, T := fe3 }
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl subtle::ConditionallySelectable for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 472:0-481:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.SubtleConditionallySelectable :
+  subtle.ConditionallySelectable edwards.EdwardsPoint := {
+  coremarkerCopyInst := edwards.EdwardsPoint.Insts.CoreMarkerCopy
+  conditional_select :=
+    edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_select
+  conditional_assign :=
+    edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_assign
+  conditional_swap :=
+    edwards.EdwardsPoint.Insts.SubtleConditionallySelectable.conditional_swap
+}
+
+/-- [curve25519_dalek::edwards::{impl subtle::ConstantTimeEq for curve25519_dalek::edwards::EdwardsPoint}::ct_eq]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 488:4-497:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.SubtleConstantTimeEq.ct_eq
+  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
+  Result subtle.Choice
+  := do
+  let fe ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.X other.Z
+  let fe1 ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      other.X self.Z
+  let c ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq.ct_eq fe
+      fe1
+  let fe2 ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.Y other.Z
+  let fe3 ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      other.Y self.Z
+  let c1 ←
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq.ct_eq
+      fe2 fe3
+  subtle.Choice.Insts.CoreOpsBitBitAndChoiceChoice.bitand c c1
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl subtle::ConstantTimeEq for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 487:0-498:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.SubtleConstantTimeEq : subtle.ConstantTimeEq
+  edwards.EdwardsPoint := {
+  ct_eq := edwards.EdwardsPoint.Insts.SubtleConstantTimeEq.ct_eq
+}
+
+/-- [curve25519_dalek::edwards::{impl core::cmp::PartialEq<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::eq]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 501:4-503:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint.eq
+  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
+  Result Bool
+  := do
+  let c ← edwards.EdwardsPoint.Insts.SubtleConstantTimeEq.ct_eq self other
+  core.convert.IntoFrom.into Bool.Insts.CoreConvertFromChoice c
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::cmp::PartialEq<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 500:0-504:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint :
+  core.cmp.PartialEq edwards.EdwardsPoint edwards.EdwardsPoint := {
+  eq := edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint.eq
+}
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::cmp::Eq for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 506:0-506:27 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreCmpEq : core.cmp.Eq edwards.EdwardsPoint
+  := {
+  partialEqInst := edwards.EdwardsPoint.Insts.CoreCmpPartialEqEdwardsPoint
+  assert_fields_are_eq :=
+    edwards.EdwardsPoint.Insts.CoreCmpEq.assert_fields_are_eq
+}
+
+/-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::invert]:
+    Source: 'curve25519-dalek/src/field.rs', lines 213:4-222:5 -/
+def field.FieldElement51.invert
+  (self : backend.serial.u64.field.FieldElement51) :
+  Result backend.serial.u64.field.FieldElement51
+  := do
+  let (t19, t3) ← field.FieldElement51.pow22501 self
+  let t20 ← backend.serial.u64.field.FieldElement51.pow2k t19 5#u32
+  SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+    t20 t3
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::as_affine_niels]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 537:4-547:5 -/
+def edwards.EdwardsPoint.as_affine_niels
+  (self : edwards.EdwardsPoint) :
+  Result backend.serial.curve_models.AffineNielsPoint
+  := do
+  let recip ← field.FieldElement51.invert self.Z
+  let x ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.X recip
+  let y ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.Y recip
+  let fe ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      x y
+  let fe1 ← backend.serial.u64.constants.EDWARDS_D2
+  let xy2d ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      fe fe1
+  let fe2 ←
+    SharedAFieldElement51.Insts.CoreOpsArithAddSharedBFieldElement51FieldElement51.add
+      y x
+  let fe3 ←
+    SharedAFieldElement51.Insts.CoreOpsArithSubSharedBFieldElement51FieldElement51.sub
+      y x
+  ok { y_plus_x := fe2, y_minus_x := fe3, xy2d }
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::to_montgomery]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 558:4-568:5
+    Visibility: public -/
+def edwards.EdwardsPoint.to_montgomery
+  (self : edwards.EdwardsPoint) : Result montgomery.MontgomeryPoint := do
+  let U ←
+    SharedAFieldElement51.Insts.CoreOpsArithAddSharedBFieldElement51FieldElement51.add
+      self.Z self.Y
+  let W ←
+    SharedAFieldElement51.Insts.CoreOpsArithSubSharedBFieldElement51FieldElement51.sub
+      self.Z self.Y
+  let fe ← field.FieldElement51.invert W
+  let u ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      U fe
+  let a ← backend.serial.u64.field.FieldElement51.as_bytes u
+  ok a
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::compress]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 571:4-580:5
+    Visibility: public -/
+def edwards.EdwardsPoint.compress
+  (self : edwards.EdwardsPoint) : Result edwards.CompressedEdwardsY := do
+  let recip ← field.FieldElement51.invert self.Z
+  let x ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.X recip
+  let y ←
+    SharedAFieldElement51.Insts.CoreOpsArithMulSharedBFieldElement51FieldElement51.mul
+      self.Y recip
+  let s ← backend.serial.u64.field.FieldElement51.as_bytes y
+  let c ← field.FieldElement51.is_negative x
+  let i ← subtle.Choice.unwrap_u8 c
+  let i1 ← i <<< 7#i32
+  let i2 ← Array.index_usize s 31#usize
+  let i3 ← lift (i2 ^^^ i1)
+  let s1 ← Array.update s 31#usize i3
+  ok s1
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Add<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::add]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 632:4-634:5
+    Visibility: public -/
+def
+  SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint.add
+  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  let pnp ← edwards.EdwardsPoint.as_projective_niels other
+  let cp ←
+    SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBProjectiveNielsPointCompletedPoint.add
+      self pnp
+  backend.serial.curve_models.CompletedPoint.as_extended cp
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Add<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 630:0-635:1 -/
+@[reducible]
+def SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint :
+  core.ops.arith.Add edwards.EdwardsPoint edwards.EdwardsPoint
+  edwards.EdwardsPoint := {
+  add :=
+    SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint.add
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::AddAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::add_assign]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 644:4-646:5
+    Visibility: public -/
+def
+  edwards.EdwardsPoint.Insts.CoreOpsArithAddAssignSharedBEdwardsPoint.add_assign
+  (self : edwards.EdwardsPoint) (_rhs : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAEdwardsPoint.Insts.CoreOpsArithAddSharedBEdwardsPointEdwardsPoint.add
+    self _rhs
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::AddAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 643:0-647:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreOpsArithAddAssignSharedBEdwardsPoint :
+  core.ops.arith.AddAssign edwards.EdwardsPoint edwards.EdwardsPoint := {
+  add_assign :=
+    edwards.EdwardsPoint.Insts.CoreOpsArithAddAssignSharedBEdwardsPoint.add_assign
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Sub<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::sub]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 653:4-655:5
+    Visibility: public -/
+def
+  SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint.sub
+  (self : edwards.EdwardsPoint) (other : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  let pnp ← edwards.EdwardsPoint.as_projective_niels other
+  let cp ←
+    SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBProjectiveNielsPointCompletedPoint.sub
+      self pnp
+  backend.serial.curve_models.CompletedPoint.as_extended cp
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Sub<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 651:0-656:1 -/
+@[reducible]
+def SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint :
+  core.ops.arith.Sub edwards.EdwardsPoint edwards.EdwardsPoint
+  edwards.EdwardsPoint := {
+  sub :=
+    SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint.sub
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::SubAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::sub_assign]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 665:4-667:5
+    Visibility: public -/
+def
+  edwards.EdwardsPoint.Insts.CoreOpsArithSubAssignSharedBEdwardsPoint.sub_assign
+  (self : edwards.EdwardsPoint) (_rhs : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAEdwardsPoint.Insts.CoreOpsArithSubSharedBEdwardsPointEdwardsPoint.sub
+    self _rhs
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::SubAssign<&'b curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 664:0-668:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreOpsArithSubAssignSharedBEdwardsPoint :
+  core.ops.arith.SubAssign edwards.EdwardsPoint edwards.EdwardsPoint := {
+  sub_assign :=
+    edwards.EdwardsPoint.Insts.CoreOpsArithSubAssignSharedBEdwardsPoint.sub_assign
+}
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::iter::traits::accum::Sum<T> for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 672:0-682:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreIterTraitsAccumSum {T : Type}
+  (coreborrowBorrowTEdwardsPointInst : core.borrow.Borrow T
+  edwards.EdwardsPoint) : core.iter.traits.accum.Sum edwards.EdwardsPoint T
+  := {
+  sum := fun {I : Type} (coreitertraitsiteratorIteratorInst :
+    core.iter.traits.iterator.Iterator I T) =>
+    edwards.EdwardsPoint.Insts.CoreIterTraitsAccumSum.sum
+    coreborrowBorrowTEdwardsPointInst coreitertraitsiteratorIteratorInst
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::neg]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 691:4-698:5
+    Visibility: public -/
+def SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
+  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
+  let fe ←
+    SharedAFieldElement51.Insts.CoreOpsArithNegFieldElement51.neg self.X
+  let fe1 ←
+    SharedAFieldElement51.Insts.CoreOpsArithNegFieldElement51.neg self.T
+  ok { self with X := fe, T := fe1 }
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 688:0-699:1 -/
+@[reducible]
+def SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint : core.ops.arith.Neg
+  edwards.EdwardsPoint edwards.EdwardsPoint := {
+  neg := SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::neg]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 704:4-706:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
+  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
+  SharedAEdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg self
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 701:0-707:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint : core.ops.arith.Neg
+  edwards.EdwardsPoint edwards.EdwardsPoint := {
+  neg := edwards.EdwardsPoint.Insts.CoreOpsArithNegEdwardsPoint.neg
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::scalar::Scalar, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::mul]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 731:4-733:5
+    Visibility: public -/
+def SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul
+  (self : edwards.EdwardsPoint) (scalar : scalar.Scalar) :
+  Result edwards.EdwardsPoint
+  := do
+  backend.variable_base_mul self scalar
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::MulAssign<&'b curve25519_dalek::scalar::Scalar> for curve25519_dalek::edwards::EdwardsPoint}::mul_assign]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 714:4-717:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.CoreOpsArithMulAssignSharedBScalar.mul_assign
+  (self : edwards.EdwardsPoint) (scalar : scalar.Scalar) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul self
+    scalar
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::MulAssign<&'b curve25519_dalek::scalar::Scalar> for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 713:0-718:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreOpsArithMulAssignSharedBScalar :
+  core.ops.arith.MulAssign edwards.EdwardsPoint scalar.Scalar := {
+  mul_assign :=
+    edwards.EdwardsPoint.Insts.CoreOpsArithMulAssignSharedBScalar.mul_assign
+}
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::scalar::Scalar, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 725:0-734:1 -/
+@[reducible]
+def SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint :
+  core.ops.arith.Mul edwards.EdwardsPoint scalar.Scalar edwards.EdwardsPoint
+  := {
+  mul := SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::scalar::Scalar}::mul]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 743:4-745:5
+    Visibility: public -/
+def SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul
+  (self : scalar.Scalar) (point : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul point
+    self
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::ops::arith::Mul<&'b curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::scalar::Scalar}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 736:0-746:1 -/
+@[reducible]
+def SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint :
+  core.ops.arith.Mul scalar.Scalar edwards.EdwardsPoint edwards.EdwardsPoint
+  := {
+  mul := SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul
+}
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::scalar::Scalar}::mul]:
+    Source: 'curve25519-dalek/src/macros.rs', lines 100:12-102:13
+    Visibility: public -/
+def SharedAScalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul
+  (self : scalar.Scalar) (rhs : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul self
+    rhs
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_base]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 753:4-763:5
+    Visibility: public -/
+def edwards.EdwardsPoint.mul_base
+  (scalar : scalar.Scalar) : Result edwards.EdwardsPoint := do
+  let ep ← backend.serial.u64.constants.ED25519_BASEPOINT_POINT
+  SharedAScalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul scalar ep
+
+/-- [curve25519_dalek::scalar::clamp_integer]:
+    Source: 'curve25519-dalek/src/scalar.rs', lines 1420:0-1425:1
+    Visibility: public -/
+def scalar.clamp_integer
+  (bytes : Array Std.U8 32#usize) : Result (Array Std.U8 32#usize) := do
+  let i ← Array.index_usize bytes 0#usize
+  let i1 ← lift (i &&& 248#u8)
+  let bytes1 ← Array.update bytes 0#usize i1
+  let i2 ← Array.index_usize bytes1 31#usize
+  let i3 ← lift (i2 &&& 127#u8)
+  let bytes2 ← Array.update bytes1 31#usize i3
+  let i4 ← Array.index_usize bytes2 31#usize
+  let i5 ← lift (i4 ||| 64#u8)
+  Array.update bytes2 31#usize i5
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::scalar::Scalar}::mul]:
+    Source: 'curve25519-dalek/src/macros.rs', lines 107:12-109:13
+    Visibility: public -/
+def scalar.Scalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul
+  (self : scalar.Scalar) (rhs : edwards.EdwardsPoint) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAScalar.Insts.CoreOpsArithMulSharedBEdwardsPointEdwardsPoint.mul self
+    rhs
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_clamped]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 767:4-779:5
+    Visibility: public -/
+def edwards.EdwardsPoint.mul_clamped
+  (self : edwards.EdwardsPoint) (bytes : Array Std.U8 32#usize) :
+  Result edwards.EdwardsPoint
+  := do
+  let a ← scalar.clamp_integer bytes
+  scalar.Scalar.Insts.CoreOpsArithMulEdwardsPointEdwardsPoint.mul
+    { bytes := a } self
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_base_clamped]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 783:4-791:5
+    Visibility: public -/
+def edwards.EdwardsPoint.mul_base_clamped
+  (bytes : Array Std.U8 32#usize) : Result edwards.EdwardsPoint := do
+  let a ← scalar.clamp_integer bytes
+  edwards.EdwardsPoint.mul_base { bytes := a }
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::vartime_double_scalar_mul_basepoint]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 907:4-913:5
+    Visibility: public -/
+def edwards.EdwardsPoint.vartime_double_scalar_mul_basepoint
+  (a : scalar.Scalar) (A : edwards.EdwardsPoint) (b : scalar.Scalar) :
+  Result edwards.EdwardsPoint
+  := do
+  backend.vartime_double_base_mul a A b
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_pow_2]: loop body 0:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1201:8-1204:9 -/
+@[rust_loop_body]
+def edwards.EdwardsPoint.mul_by_pow_2_loop.body
+  (iter : core.ops.range.Range Std.U32)
+  (s : backend.serial.curve_models.ProjectivePoint) :
+  Result (ControlFlow ((core.ops.range.Range Std.U32) ×
+    backend.serial.curve_models.ProjectivePoint)
+    backend.serial.curve_models.ProjectivePoint)
+  := do
+  let (o, iter1) ←
+    core.iter.range.IteratorRange.next U32.Insts.CoreIterRangeStep iter
+  match o with
+  | none => ok (done s)
+  | some _ =>
+    let r ← backend.serial.curve_models.ProjectivePoint.double s
+    let s1 ← backend.serial.curve_models.CompletedPoint.as_projective r
+    ok (cont (iter1, s1))
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_pow_2]: loop 0:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1201:8-1204:9 -/
+@[rust_loop]
+def edwards.EdwardsPoint.mul_by_pow_2_loop
+  (iter : core.ops.range.Range Std.U32)
+  (s : backend.serial.curve_models.ProjectivePoint) :
+  Result backend.serial.curve_models.ProjectivePoint
+  := do
+  loop
+    (fun (iter1, s1) => edwards.EdwardsPoint.mul_by_pow_2_loop.body iter1 s1)
+    (iter, s)
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_pow_2]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1197:4-1207:5 -/
+def edwards.EdwardsPoint.mul_by_pow_2
+  (self : edwards.EdwardsPoint) (k : Std.U32) :
+  Result edwards.EdwardsPoint
+  := do
+  massert (k > 0#u32)
+  let s ← edwards.EdwardsPoint.as_projective self
+  let i ← k - 1#u32
+  let s1 ←
+    edwards.EdwardsPoint.mul_by_pow_2_loop { start := 0#u32, «end» := i } s
+  let cp ← backend.serial.curve_models.ProjectivePoint.double s1
+  backend.serial.curve_models.CompletedPoint.as_extended cp
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::mul_by_cofactor]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1192:4-1194:5
+    Visibility: public -/
+def edwards.EdwardsPoint.mul_by_cofactor
+  (self : edwards.EdwardsPoint) : Result edwards.EdwardsPoint := do
+  edwards.EdwardsPoint.mul_by_pow_2 self 3#u32
+
+/-- [curve25519_dalek::traits::{impl curve25519_dalek::traits::IsIdentity for T}::is_identity]:
+    Source: 'curve25519-dalek/src/traits.rs', lines 45:4-47:5
+    Visibility: public -/
+def traits.IsIdentity.Blanket.is_identity
+  {T : Type} (subtleConstantTimeEqInst : subtle.ConstantTimeEq T) (IdentityInst
+  : traits.Identity T) (self : T) :
+  Result Bool
+  := do
+  let t ← IdentityInst.identity
+  let c ← subtleConstantTimeEqInst.ct_eq self t
+  core.convert.IntoFrom.into Bool.Insts.CoreConvertFromChoice c
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::is_small_order]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1232:4-1234:5
+    Visibility: public -/
+def edwards.EdwardsPoint.is_small_order
+  (self : edwards.EdwardsPoint) : Result Bool := do
+  let ep ← edwards.EdwardsPoint.mul_by_cofactor self
+  traits.IsIdentity.Blanket.is_identity
+    edwards.EdwardsPoint.Insts.SubtleConstantTimeEq
+    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity ep
+
+/-- [curve25519_dalek::edwards::{impl core::ops::arith::Mul<curve25519_dalek::scalar::Scalar, curve25519_dalek::edwards::EdwardsPoint> for &'a curve25519_dalek::edwards::EdwardsPoint}::mul]:
+    Source: 'curve25519-dalek/src/macros.rs', lines 100:12-102:13
+    Visibility: public -/
+def SharedAEdwardsPoint.Insts.CoreOpsArithMulScalarEdwardsPoint.mul
+  (self : edwards.EdwardsPoint) (rhs : scalar.Scalar) :
+  Result edwards.EdwardsPoint
+  := do
+  SharedAEdwardsPoint.Insts.CoreOpsArithMulSharedBScalarEdwardsPoint.mul self
+    rhs
+
+/-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::is_torsion_free]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1262:4-1264:5
+    Visibility: public -/
+def edwards.EdwardsPoint.is_torsion_free
+  (self : edwards.EdwardsPoint) : Result Bool := do
+  let ep ←
+    SharedAEdwardsPoint.Insts.CoreOpsArithMulScalarEdwardsPoint.mul self
+      constants.BASEPOINT_ORDER_PRIVATE
+  traits.IsIdentity.Blanket.is_identity
+    edwards.EdwardsPoint.Insts.SubtleConstantTimeEq
+    edwards.EdwardsPoint.Insts.Curve25519_dalekTraitsIdentity ep
+
+/-- [curve25519_dalek::edwards::{impl core::fmt::Debug for curve25519_dalek::edwards::EdwardsPoint}::fmt]:
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1272:4-1278:5
+    Visibility: public -/
+def edwards.EdwardsPoint.Insts.CoreFmtDebug.fmt
+  (self : edwards.EdwardsPoint) (f : core.fmt.Formatter) :
+  Result ((core.result.Result Unit core.fmt.Error) × core.fmt.Formatter)
+  := do
+  let a ←
+    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
+      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.X
+  let a1 ←
+    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
+      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.Y
+  let a2 ←
+    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
+      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.Z
+  let a3 ←
+    core.fmt.rt.Argument.new_debug (core.fmt.DebugShared
+      backend.serial.u64.field.FieldElement51.Insts.CoreFmtDebug) self.T
+  let a4 ←
+    core.fmt.Arguments.new
+      (Array.make 48#usize [
+        18#u8, 69#u8, 100#u8, 119#u8, 97#u8, 114#u8, 100#u8, 115#u8, 80#u8,
+        111#u8, 105#u8, 110#u8, 116#u8, 123#u8, 10#u8, 9#u8, 88#u8, 58#u8,
+        32#u8, 192#u8, 6#u8, 44#u8, 10#u8, 9#u8, 89#u8, 58#u8, 32#u8, 192#u8,
+        6#u8, 44#u8, 10#u8, 9#u8, 90#u8, 58#u8, 32#u8, 192#u8, 6#u8, 44#u8,
+        10#u8, 9#u8, 84#u8, 58#u8, 32#u8, 192#u8, 2#u8, 10#u8, 125#u8, 0#u8
+        ]) (Array.make 4#usize [ a, a1, a2, a3 ])
+  core.fmt.Formatter.write_fmt f a4
+
+/-- Trait implementation: [curve25519_dalek::edwards::{impl core::fmt::Debug for curve25519_dalek::edwards::EdwardsPoint}]
+    Source: 'curve25519-dalek/src/edwards.rs', lines 1271:0-1279:1 -/
+@[reducible]
+def edwards.EdwardsPoint.Insts.CoreFmtDebug : core.fmt.Debug
+  edwards.EdwardsPoint := {
+  fmt := edwards.EdwardsPoint.Insts.CoreFmtDebug.fmt
+}
+
+/-- Trait implementation: [curve25519_dalek::field::{impl core::cmp::PartialEq<curve25519_dalek::backend::serial::u64::field::FieldElement51> for curve25519_dalek::backend::serial::u64::field::FieldElement51}]
+    Source: 'curve25519-dalek/src/field.rs', lines 85:0-89:1 -/
+@[reducible]
+def
+  backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51
+  : core.cmp.PartialEq backend.serial.u64.field.FieldElement51
+  backend.serial.u64.field.FieldElement51 := {
+  eq :=
+    backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51.eq
+}
+
+/-- Trait implementation: [curve25519_dalek::field::{impl core::cmp::Eq for curve25519_dalek::backend::serial::u64::field::FieldElement51}]
+    Source: 'curve25519-dalek/src/field.rs', lines 83:0-83:27 -/
+@[reducible]
+def backend.serial.u64.field.FieldElement51.Insts.CoreCmpEq : core.cmp.Eq
+  backend.serial.u64.field.FieldElement51 := {
+  partialEqInst :=
+    backend.serial.u64.field.FieldElement51.Insts.CoreCmpPartialEqFieldElement51
+  assert_fields_are_eq :=
+    backend.serial.u64.field.FieldElement51.Insts.CoreCmpEq.assert_fields_are_eq
+}
+
+/-- Trait implementation: [curve25519_dalek::field::{impl subtle::ConstantTimeEq for curve25519_dalek::backend::serial::u64::field::FieldElement51}]
+    Source: 'curve25519-dalek/src/field.rs', lines 91:0-98:1 -/
+@[reducible]
+def backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq :
+  subtle.ConstantTimeEq backend.serial.u64.field.FieldElement51 := {
+  ct_eq :=
+    backend.serial.u64.field.FieldElement51.Insts.SubtleConstantTimeEq.ct_eq
+}
+
+/-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::is_zero]:
+    Source: 'curve25519-dalek/src/field.rs', lines 118:4-123:5 -/
+def field.FieldElement51.is_zero
+  (self : backend.serial.u64.field.FieldElement51) : Result subtle.Choice := do
+  let zero := Array.repeat 32#usize 0#u8
+  let bytes ← backend.serial.u64.field.FieldElement51.as_bytes self
+  let s ← lift (Array.to_slice bytes)
+  let s1 ← lift (Array.to_slice zero)
+  Slice.Insts.SubtleConstantTimeEq.ct_eq U8.Insts.SubtleConstantTimeEq s s1
 
 /-- [curve25519_dalek::field::{curve25519_dalek::backend::serial::u64::field::FieldElement51}::invsqrt]:
     Source: 'curve25519-dalek/src/field.rs', lines 310:4-312:5 -/

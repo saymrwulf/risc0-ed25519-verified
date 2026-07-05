@@ -39,7 +39,7 @@ axiom
     F)
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::as_bytes]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 181:4-181:45
+    Source: 'curve25519-dalek/src/edwards.rs', lines 180:4-180:45
     Name pattern: [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::as_bytes]
     Visibility: public -/
 @[rust_fun
@@ -50,7 +50,7 @@ axiom curve25519_dalek.edwards.CompressedEdwardsY.as_bytes
     32#usize)
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::compress]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 566:4-566:48
+    Source: 'curve25519-dalek/src/edwards.rs', lines 571:4-571:48
     Name pattern: [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::compress]
     Visibility: public -/
 @[rust_fun
@@ -61,7 +61,7 @@ axiom curve25519_dalek.edwards.EdwardsPoint.compress
     curve25519_dalek.edwards.CompressedEdwardsY
 
 /-- [curve25519_dalek::edwards::{impl core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint> for curve25519_dalek::edwards::EdwardsPoint}::neg]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 699:4-699:32
+    Source: 'curve25519-dalek/src/edwards.rs', lines 704:4-704:32
     Name pattern: [curve25519_dalek::edwards::{core::ops::arith::Neg<curve25519_dalek::edwards::EdwardsPoint, curve25519_dalek::edwards::EdwardsPoint>}::neg]
     Visibility: public -/
 @[rust_fun
@@ -73,7 +73,7 @@ axiom
     curve25519_dalek.edwards.EdwardsPoint
 
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::vartime_double_scalar_mul_basepoint]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 902:4-906:21
+    Source: 'curve25519-dalek/src/edwards.rs', lines 907:4-911:21
     Name pattern: [curve25519_dalek::edwards::{curve25519_dalek::edwards::EdwardsPoint}::vartime_double_scalar_mul_basepoint]
     Visibility: public -/
 @[rust_fun

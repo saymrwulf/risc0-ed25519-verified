@@ -128,7 +128,7 @@ structure scalar.Scalar where
 def backend.serial.u64.field.FieldElement51 := Array Std.U64 5#usize
 
 /-- [curve25519_dalek::edwards::EdwardsPoint]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 371:0-376:1
+    Source: 'curve25519-dalek/src/edwards.rs', lines 376:0-381:1
     Visibility: public -/
 structure edwards.EdwardsPoint where
   X : backend.serial.u64.field.FieldElement51
@@ -198,7 +198,7 @@ def backend.serial.u64.scalar.Scalar52 := Array Std.U64 5#usize
 def backend.serial.u64.field.FieldElement51.from_bytes.closure := Unit
 
 /-- [curve25519_dalek::edwards::CompressedEdwardsY]
-    Source: 'curve25519-dalek/src/edwards.rs', lines 165:0-165:44
+    Source: 'curve25519-dalek/src/edwards.rs', lines 164:0-164:44
     Visibility: public -/
 @[reducible]
 def edwards.CompressedEdwardsY := Array Std.U8 32#usize
