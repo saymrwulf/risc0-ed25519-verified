@@ -357,23 +357,6 @@ axiom
     (backend.serial.curve_models.AffineNielsPoint ×
     backend.serial.curve_models.AffineNielsPoint)
 
-/-- [curve25519_dalek::edwards::decompress::step_2]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 223:4-240:5 -/
-axiom edwards.decompress.step_2
-  :
-  edwards.CompressedEdwardsY → backend.serial.u64.field.FieldElement51 →
-    backend.serial.u64.field.FieldElement51 →
-    backend.serial.u64.field.FieldElement51 → Result edwards.EdwardsPoint
-
-/-- [curve25519_dalek::edwards::decompress::step_1]:
-    Source: 'curve25519-dalek/src/edwards.rs', lines 209:4-220:5 -/
-axiom edwards.decompress.step_1
-  :
-  edwards.CompressedEdwardsY → Result (subtle.Choice ×
-    backend.serial.u64.field.FieldElement51 ×
-    backend.serial.u64.field.FieldElement51 ×
-    backend.serial.u64.field.FieldElement51)
-
 /-- [curve25519_dalek::edwards::{curve25519_dalek::edwards::CompressedEdwardsY}::from_slice]:
     Source: 'curve25519-dalek/src/edwards.rs', lines 404:4-406:5
     Visibility: public -/
