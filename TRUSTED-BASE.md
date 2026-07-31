@@ -34,6 +34,16 @@ running Rust code. Everything else is machine-checked.
    implementation itself is NOT verified. Zero curve, scalar, or backend
    axioms are in any of the four cones. The constructive decompress theorem underneath the full lift
    (`decompress_of_canonical`) carries the standard three axioms ONLY.
+   That two-tier separation is enforced, not merely observed. Phase 3
+   requires every arithmetic certificate's cone to be exactly the three
+   kernel axioms, and every apex cone to equal the documented set above
+   exactly. `selftest-tiers.sh` attacks it from both sides: it injects one
+   of the axioms above into an arithmetic certificate's *proof*, leaving the
+   statement untouched so that only the cone moves, and it shifts the
+   documented apex boundary by one name in each direction. All three must be
+   rejected, and are. Before those cases existed nothing in the harness
+   distinguished "this tier needs no hash oracle" from "this tier happens
+   not to use one today".
 6. **`Scalar52::sub::black_box` (scalar layer)**: this fork's v4.1.3 code
    implements the constant-time conditional via a local `black_box` =
    `unsafe { core::ptr::read_volatile(&value) }`. The volatile read is an
