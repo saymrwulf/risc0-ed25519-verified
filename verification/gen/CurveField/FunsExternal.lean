@@ -301,39 +301,10 @@ def U64.Insts.SubtleConditionallySelectable.conditional_swap
 def backend.get_selected_backend : Result backend.BackendKind :=
   ok backend.BackendKind.Serial
 
-/-- [curve25519_dalek::backend::vector::scalar_mul::variable_base::spec_avx512ifma_avx512vl::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/variable_base.rs', lines 3:0-6:2
-    Visibility: public -/
-axiom backend.vector.scalar_mul.variable_base.spec_avx512ifma_avx512vl.mul
-  : edwards.EdwardsPoint → scalar.Scalar → Result edwards.EdwardsPoint
-
-/-- [curve25519_dalek::backend::vector::scalar_mul::variable_base::spec_avx2::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/variable_base.rs', lines 3:0-6:2
-    Visibility: public -/
-axiom backend.vector.scalar_mul.variable_base.spec_avx2.mul
-  : edwards.EdwardsPoint → scalar.Scalar → Result edwards.EdwardsPoint
-
 /-- [curve25519_dalek::backend::serial::scalar_mul::variable_base::mul]:
     Source: 'curve25519-dalek/src/backend/serial/scalar_mul/variable_base.rs', lines 11:0-48:1 -/
 axiom backend.serial.scalar_mul.variable_base.mul
   : edwards.EdwardsPoint → scalar.Scalar → Result edwards.EdwardsPoint
-
-/-- [curve25519_dalek::backend::vector::scalar_mul::vartime_double_base::spec_avx512ifma_avx512vl::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/vartime_double_base.rs', lines 14:0-17:2
-    Visibility: public -/
-axiom
-  backend.vector.scalar_mul.vartime_double_base.spec_avx512ifma_avx512vl.mul
-  :
-  scalar.Scalar → edwards.EdwardsPoint → scalar.Scalar → Result
-    edwards.EdwardsPoint
-
-/-- [curve25519_dalek::backend::vector::scalar_mul::vartime_double_base::spec_avx2::mul]:
-    Source: 'curve25519-dalek/src/backend/vector/scalar_mul/vartime_double_base.rs', lines 14:0-17:2
-    Visibility: public -/
-axiom backend.vector.scalar_mul.vartime_double_base.spec_avx2.mul
-  :
-  scalar.Scalar → edwards.EdwardsPoint → scalar.Scalar → Result
-    edwards.EdwardsPoint
 
 /-- [curve25519_dalek::backend::serial::curve_models::{impl subtle::ConditionallySelectable for curve25519_dalek::backend::serial::curve_models::ProjectiveNielsPoint}::conditional_swap]:
     Source: 'curve25519-dalek/src/backend/serial/curve_models/mod.rs', lines 295:0-311:1

@@ -33,10 +33,6 @@ CurveField/FunsExternal|subtle.Choice.Insts.CoreOpsBitBitOrChoiceChoice.bitor|MO
 CurveField/FunsExternal|subtle.Choice.unwrap_u8|MODEL
 CurveField/FunsExternal|subtle.ConditionallySelectable.conditional_assign.default|MODEL
 CurveField/FunsExternal|subtle.ConditionallySelectable.conditional_swap.default|MODEL
-CurveField/FunsExternal|backend.vector.scalar_mul.variable_base.spec_avx2.mul|EXTRA
-CurveField/FunsExternal|backend.vector.scalar_mul.variable_base.spec_avx512ifma_avx512vl.mul|EXTRA
-CurveField/FunsExternal|backend.vector.scalar_mul.vartime_double_base.spec_avx2.mul|EXTRA
-CurveField/FunsExternal|backend.vector.scalar_mul.vartime_double_base.spec_avx512ifma_avx512vl.mul|EXTRA
 CurveField/TypesExternal|subtle.Choice|MODEL
 CurveSig/FunsExternal|core.result.Result.Insts.CoreOpsTry_traitFromResidualResultInfallibleE.from_residual|MODEL
 CurveSig/FunsExternal|core.result.Result.Insts.CoreOpsTry_traitTry.branch|MODEL
@@ -55,4 +51,4 @@ CurveSig/TypesExternal|curve25519_dalek.edwards.EdwardsPoint|PROVEN
 CurveSig/TypesExternal|curve25519_dalek.scalar.Scalar|PROVEN
 CurveSig/TypesExternal|ed25519.Signature|MODEL
 CurveSig/TypesExternal|signature.error.Error|MODEL
-CORRESPONDENCE-COUNT|57
+CORRESPONDENCE-COUNT|53
